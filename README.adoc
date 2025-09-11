@@ -1,0 +1,62 @@
+image::ogc.svg[350,350]
+
+== Geosemantics Vocabularies
+
+This repository contains vocabularies - controlled lists of terms - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
+
+These vocabularies here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they cease to exist, management of the vocabularies is taken over by the Geosemantics DWG.
+
+=== Technical Information
+
+==== Vocabulary Model
+
+The vocabularies in this repository are formulated according to a _profile_ of https://www.w3.org/TR/skos-reference/[SKOS]. SKOS is the https://www.w3.org/[W3C]'s general-purpose defined-term data model and the https://linked.data.gov.au/def/vocpub[VocPub profile] of it used here sets requirements for the structure of such vocabularies and the kinds of metadata expected to be present within them.
+
+==== Management Tooling
+
+The content of these vocabularies are managed through workflows of actions based on the Git version control system used by GitHub - this website - and many others. Once vocabulary content is updated, it is published on the https://defs.opengis.net/prez/[OGC's RAINBOW] which is the OGC reference data management system. Publication is automated using the https://prez.dev/[Prez Manifest] tool.
+
+=== Governance
+
+Governance of these vocabularies is undertaken according to the ISO's https://www.iso.org/standard/54721.html[Geographic information — Procedures for item registration] with the Geosemantics DWG acting as the _Control Body_ that approves or rejects all changes.
+
+See the <<Procedures, Contributing Procedures>> below for information on how to engage with these processes.
+
+=== Contributing
+
+The content of the vocabularies in this repository are open to different forms of collaboration, depending on how they were created. If you are unsure about how to contribute to them, please create an Issue in https://github.com/opengeospatial/geosemantics-vocabs/issues[this repository's Issue Tracker] and just ask!
+
+You can also directly as either the Geosemantics DWG - see above - or the individual contributors to the vocabularies via this repository's list og changes.
+
+==== Procedures
+
+The procedures to managed contributions to these vocabularies are not in place as of mid-September, 2025, but will be soon. When they are, they will follow https://www.iso.org/standard/54721.html[Geographic information — Procedures for item registration] and will, in overview, allow for:
+
+* authorised contributors (to be determined) to propose changes/additions to vocabularies
+* the Control Body - Geosemantics DWG - to approve/reject changes or delegate
+* vocabulary and vocabulary item statuses to be seen and item lifecycles tracked
+
+Currently, if you wish to contribute to these vocabularies, please contact the managers, as per the <<Contact>> section below.
+
+=== Rights and License
+
+==== License
+The content of this repository - software and vocabulary data - is licensed for use using the https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0], a copy of the deed of which is contained within the `LICENSE` file in this repository.
+
+Additionally, a machine-readable version of the Apache 2.0 license is provided, formulated according to the https://www.w3.org/TR/odrl-model/[W3C's Open Data Rights Language] as https://www.w3.org/RDF/[RDF] data in the https://www.w3.org/TR/turtle/[turtle] format, in the file `license.ttl` in this repository.
+
+==== Rights
+
+This repository's contents is copyright as follows:
+
+&copy; Open Geospatial Consortium, 2025
+
+=== Contact
+
+To be in contact with the Geosemantics Domain Working Group that manages this repository and its contents, please see:
+
+*Geosemantics Domain Working Group* +
+_OGC's List of Domain Working Groups_ +
+https://www.ogc.org/domain-working-groups/
+
+
