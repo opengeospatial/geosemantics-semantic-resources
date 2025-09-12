@@ -1,0 +1,15 @@
+
+
+<https://defs.opengis.net/org/ogc>
+    a schema:Organization ;
+    schema:name "Open Geospatial Consortium" ;
+    schema:url "https://www.ogc.org/"^^xsd:anyURI ;
+.
+
+<https://defs.opengis.net/org/geosemantics-dwg>
+    a schema:Organization ;
+    schema:description "The Open Geospatial Consortium's Geosemantics Domain Working Group" ;
+    schema:name "Geosemantics DWG" ;
+    schema:url "https://www.ogc.org/domain-working-groups/"^^xsd:anyURI ;
+    schema:parentOrganization <https://defs.opengis.net/org/ogc> ;
+.

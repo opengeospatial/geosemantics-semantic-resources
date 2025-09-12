@@ -8,9 +8,19 @@ These vocabularies here are produced by https://www.ogc.org/standards-working-gr
 
 === Technical Information
 
+==== Content
+
+The vocabularies within this repository are stored in the `vocabs/` folder within the `resources/` folder. The `resources/` folder also stores a _manifest_, a machine-readable listing of all content, a _catalogue_, a machine-readable file that helps present the content for human readability, and _labels_ for background elements within the vocabularies data that don't already have human-readable labels.
+
+Each vocab is presented in its own file according to the <<Vocabulary Model>>.
+
 ==== Vocabulary Model
 
 The vocabularies in this repository are formulated according to a _profile_ of https://www.w3.org/TR/skos-reference/[SKOS]. SKOS is the https://www.w3.org/[W3C]'s general-purpose defined-term data model and the https://linked.data.gov.au/def/vocpub[VocPub profile] of it used here sets requirements for the structure of such vocabularies and the kinds of metadata expected to be present within them.
+
+Additionally, some of these vocabs have specialised content beyond simple concepts, as per SKOS. For example, the _GeoSPARQL 1.1 Functions_ vocabulary (`resources/vocabs/geosparql-swg/functions.ttl`) additionally types each concept within it as a _SPARQL Service Description "Function"_ with defined input parameters and return values.
+
+We refer to vocabularies that have SKOS + other data model content as "SKOS+".
 
 ==== Management Tooling
 
@@ -26,7 +36,7 @@ See the <<Procedures, Contributing Procedures>> below for information on how to 
 
 The content of the vocabularies in this repository are open to different forms of collaboration, depending on how they were created. If you are unsure about how to contribute to them, please create an Issue in https://github.com/opengeospatial/geosemantics-vocabs/issues[this repository's Issue Tracker] and just ask!
 
-You can also directly as either the Geosemantics DWG - see above - or the individual contributors to the vocabularies via this repository's list og changes.
+You can also directly contact either the Geosemantics DWG - see above - or the individual contributors to the vocabularies via https://github.com/opengeospatial/geosemantics-vocabs/commits/main/[this repository's list og changes].
 
 ==== Procedures
 

@@ -1,0 +1,19 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://defs.opengis.net/def/catalog/geosemantics-vocabs>
+    a dcat:Catalog ;
+    # dcterms:hasPart
+    #     <>
+    skos:historyNote "This catalogue was was created in 2025 by the Geosemantics DWG"@en ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-vocabs" ;
+    schema:creator <https://defs.opengis.net/org/geosemantics-dwg> ;
+    schema:dateCreated "2025"^^xsd:gYear ;
+    schema:dateModified "2025-09-12"^^xsd:date ;
+    schema:description "The Open Geospatial Consortium's Geosemantics DWG's vocabularies of controlled terms" ;
+    schema:name "Geosemantics DWG  Vocabularies" ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+.
