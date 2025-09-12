@@ -17,7 +17,8 @@ PREFIX schema: <https://schema.org/>
             schema:name "Catalogue Definition"
         ] ,
         [
-            # dcterms:conformsTo "vocpub-ogc.ttl" ;
+            # dcterms:conformsTo <https://linked.data.gov.au/def/vocpub> ;  # standardised VocPub validation
+            dcterms:conformsTo "vocpub-ogc.ttl" ;  # specialised OGC validation
             prof:hasArtifact "vocabs/**/*.ttl" ;
             prof:hasRole mrr:ResourceData ;
             schema:description "Vocabulary objects in RDF (Turtle) files in the vocabs/ folder and subfolders. All vocabs conform to the OGC's variant of the VocPub profile of SKOS" ;

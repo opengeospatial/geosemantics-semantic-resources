@@ -26,6 +26,29 @@ We refer to vocabularies that have SKOS + other data model content as "SKOS+".
 
 The content of these vocabularies are managed through workflows of actions based on the Git version control system used by GitHub - this website - and many others. Once vocabulary content is updated, it is published on the https://defs.opengis.net/prez/[OGC's RAINBOW] which is the OGC reference data management system. Publication is automated using the https://prez.dev/[Prez Manifest] tool.
 
+===== Using Prez Manifest
+
+The Prez Manifest tool, "pm", can be used to validate any altered resource content before finalising change requests (Pull Requests). Using pm for this will prevent structurally/technically invalid additions.
+
+pm can be installed locally, https://github.com/Kurrawong/prezmanifest#installation[following these instructions], and then run from within this repository's `resources/` folder like this:
+
+====
+pm validate manifest.ttl
+====
+
+As configured in the manifest file, pm will validate all vocabs using the OGC's version of the VocPub validator which is stored within the file `vocpub-ogc.ttl`.
+
+
+===== OGC VocPub - Validator
+
+As noted in the <<Vocabulary Model>>, a profile of SKOS called VocPub used for vocabulary validation has been specialised by the OGC for its use. This validator requires basic structural elements and simple metadata be present in SKOS vocabs, with a focus on ensuring catalogue-style metadata is present to allow large numbers of vocabs to be used effectively together.
+
+> [!NOTE]
+> OGC VocPub is currently a work in progress. It started as just a clone of the https://linked.data.gov.au/def/vocpub[standard VocPub profile] in September 2025, but is being evolved to cater for OGC's particular needs, such as a requirement for specialised classification of the vocabs.
+>
+> Currently the `vocpub-ogc.ttl` file contains no content to ensure `pm` validation doesn't fail while legacy GeoSPARQL vocabularies that are not conformant to VocPub are being updated to conform.
+
+
 === Governance
 
 Governance of these vocabularies is undertaken according to the ISO's https://www.iso.org/standard/54721.html[Geographic information — Procedures for item registration] with the Geosemantics DWG acting as the _Control Body_ that approves or rejects all changes.
@@ -68,5 +91,3 @@ To be in contact with the Geosemantics Domain Working Group that manages this re
 *Geosemantics Domain Working Group* +
 _OGC's List of Domain Working Groups_ +
 https://www.ogc.org/domain-working-groups/
-
-

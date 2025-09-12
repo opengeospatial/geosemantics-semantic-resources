@@ -1,4 +1,5 @@
-
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://defs.opengis.net/org/ogc>
     a schema:Organization ;
