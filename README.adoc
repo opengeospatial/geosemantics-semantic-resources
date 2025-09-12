@@ -43,10 +43,12 @@ As configured in the manifest file, pm will validate all vocabs using the OGC's 
 
 As noted in the <<Vocabulary Model>>, a profile of SKOS called VocPub used for vocabulary validation has been specialised by the OGC for its use. This validator requires basic structural elements and simple metadata be present in SKOS vocabs, with a focus on ensuring catalogue-style metadata is present to allow large numbers of vocabs to be used effectively together.
 
-> [!NOTE]
-> OGC VocPub is currently a work in progress. It started as just a clone of the https://linked.data.gov.au/def/vocpub[standard VocPub profile] in September 2025, but is being evolved to cater for OGC's particular needs, such as a requirement for specialised classification of the vocabs.
->
-> Currently the `vocpub-ogc.ttl` file contains no content to ensure `pm` validation doesn't fail while legacy GeoSPARQL vocabularies that are not conformant to VocPub are being updated to conform.
+[NOTE]
+====
+OGC VocPub is currently a work in progress. It started as just a clone of the https://linked.data.gov.au/def/vocpub[standard VocPub profile] in September 2025, but is being evolved to cater for OGC's particular needs, such as a requirement for specialised classification of the vocabs.
+
+Currently, the `vocpub-ogc.ttl` file contains no content to ensure `pm` validation doesn't fail while legacy GeoSPARQL vocabularies that are not conformant to VocPub are being updated to conform.
+====
 
 
 === Governance
