@@ -1,0 +1,47 @@
+# This file contains a machine-readable listing of the contents of this repository's vocabulary resources
+# according to the Prez Manifest (https://prez.dev) model.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX mrr: <https://prez.dev/ManifestResourceRoles/>
+PREFIX prez: <https://prez.dev/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX schema: <https://schema.org/>
+
+[]
+    a prez:Manifest ;
+    prof:hasResource
+        [
+            prof:hasArtifact "resources/geosparql-swg/catalogue.ttl" ;
+            prof:hasRole mrr:CatalogueData ;
+            schema:description "The Open Geospatial Consortium's Geosemantics DWG's Semantic Web resources" ;
+            schema:name "Geosemantics DWG Catalogue"
+        ] ,
+        [
+            dcterms:conformsTo <https://linked.data.gov.au/def/vocpub> ;
+            prof:hasArtifact "resources/geosparql-swg/vocabs/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "GeoSPARQL SWG Vocabularies"
+        ] ,
+        [
+            dcterms:conformsTo "validators/ontpub.ttl" ;
+            prof:hasArtifact "resources/geosparql-swg/ontologies/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "GeoSPARQL SWG Ontologies"
+        ] ,
+        [
+            dcterms:conformsTo "validators/ontpub.ttl" ;
+            prof:hasArtifact "resources/geosparql-swg/validators/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "GeoSPARQL SWG Validators"
+        ] ,
+        [
+            prof:hasArtifact "resources/labels.ttl" ;
+            prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
+            schema:name "Labels" ;
+        ] ,
+        [
+            prof:hasArtifact "resources/agents.ttl" ;
+            prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
+            schema:name "Agent information" ;
+        ] ;
+.
