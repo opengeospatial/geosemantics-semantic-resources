@@ -2,17 +2,17 @@ image::ogc.svg[350,350]
 
 == Geosemantics Vocabularies
 
-This repository contains vocabularies - controlled lists of terms - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
+This repository contains https://en.wikipedia.org/wiki/Semantic_Web[Semantic Web] resources - vocabularies, ontologyes, validators - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
 
-These vocabularies here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they cease to exist, management of the vocabularies is taken over by the Geosemantics DWG.
+The resources here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they cease to exist, management of the resources is taken over by the Geosemantics DWG.
 
 === Technical Information
 
 ==== Content
 
-The vocabularies within this repository are stored in the `vocabs/` folder within the `resources/` folder. The `resources/` folder also stores a _manifest_, a machine-readable listing of all content, a _catalogue_, a machine-readable file that helps present the content for human readability, and _labels_ for background elements within the vocabularies data that don't already have human-readable labels.
+The resources within this repository are stored in the `resources/` folder and then within SWG-specific folders inside that. A machine-readable _catalogue_ is presented per SWG that lists all that SWG's resources in one place on the OGC Rainbow.
 
-Each vocab is presented in its own file according to the <<Vocabulary Model>>.
+Data files containing labels and information about agents - people and organisations - referenced by the resources are included in additional files within `resources/1`.
 
 ==== Vocabulary Model
 
@@ -22,9 +22,17 @@ Additionally, some of these vocabs have specialised content beyond simple concep
 
 We refer to vocabularies that have SKOS + other data model content as "SKOS+".
 
+==== Ontology Model
+
+The ontologies in this repository are formulated according to a _profile_ of https://www.w3.org/TR/owl2-overview/[OWL] called https://w3id.org/profile/ontpub[OntPub] that mandates basic metadata for the ontology and classes, predicates and so on it defines.
+
+==== Validators Model
+
+Currently, all the validators in this repository are https://www.w3.org/TR/shacl/[SHACL] validators which also conform to OntPub but, when the in-development https://w3c.github.io/data-shapes/shacl12-profiling/[SHACL Profiling specification] is published, its recommendations will be followed.
+
 ==== Management Tooling
 
-The content of these vocabularies are managed through workflows of actions based on the Git version control system used by GitHub - this website - and many others. Once vocabulary content is updated, it is published on the https://defs.opengis.net/prez/[OGC's RAINBOW] which is the OGC reference data management system. Publication is automated using the https://prez.dev/[Prez Manifest] tool.
+The content of these resources are managed through workflows of actions based on the Git version control system used by GitHub - this website - and many others. Once vocabulary content is updated, it is published on the https://defs.opengis.net/prez/[OGC's RAINBOW] which is the OGC reference data management system. Publication is automated using the https://prez.dev/[Prez Manifest] tool.
 
 ===== Using Prez Manifest
 
@@ -36,30 +44,17 @@ pm can be installed locally, https://github.com/Kurrawong/prezmanifest#installat
 pm validate manifest.ttl
 ====
 
-As configured in the manifest file, pm will validate all vocabs using the OGC's version of the VocPub validator which is stored within the file `vocpub-ogc.ttl`.
-
-
-===== OGC VocPub - Validator
-
-As noted in the <<Vocabulary Model>>, a profile of SKOS called VocPub used for vocabulary validation has been specialised by the OGC for its use. This validator requires basic structural elements and simple metadata be present in SKOS vocabs, with a focus on ensuring catalogue-style metadata is present to allow large numbers of vocabs to be used effectively together.
-
-[NOTE]
-====
-OGC VocPub is currently a work in progress. It started as just a clone of the https://linked.data.gov.au/def/vocpub[standard VocPub profile] in September 2025, but is being evolved to cater for OGC's particular needs, such as a requirement for specialised classification of the vocabs.
-
-Currently, the `vocpub-ogc.ttl` file contains no content to ensure `pm` validation doesn't fail while legacy GeoSPARQL vocabularies that are not conformant to VocPub are being updated to conform.
-====
-
+As configured in the manifest file, pm will validate all vocabs using the validators indicated for resources within the `manifest.ttl` file.
 
 === Governance
 
-Governance of these vocabularies is undertaken according to the ISO's https://www.iso.org/standard/54721.html[Geographic information — Procedures for item registration] with the Geosemantics DWG acting as the _Control Body_ that approves or rejects all changes.
+Governance of these resources is undertaken according to the ISO's https://www.iso.org/standard/54721.html[Geographic information — Procedures for item registration] with the Geosemantics DWG acting as the _Control Body_ that approves or rejects all changes.
 
 See the <<Procedures, Contributing Procedures>> below for information on how to engage with these processes.
 
 === Contributing
 
-The content of the vocabularies in this repository are open to different forms of collaboration, depending on how they were created. If you are unsure about how to contribute to them, please create an Issue in https://github.com/opengeospatial/geosemantics-vocabs/issues[this repository's Issue Tracker] and just ask!
+The content of the resources in this repository are open to different forms of collaboration, depending on how they were created. If you are unsure about how to contribute to them, please create an Issue in https://github.com/opengeospatial/geosemantics-vocabs/issues[this repository's Issue Tracker] and just ask!
 
 You can also directly contact either the Geosemantics DWG - see above - or the individual contributors to the vocabularies via https://github.com/opengeospatial/geosemantics-vocabs/commits/main/[this repository's list og changes].
 
