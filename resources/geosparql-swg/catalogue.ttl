@@ -5,14 +5,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://defs.opengis.net/def/catalog/geosemantics-vocabs>
-    dcat:Catalog ;
+    a dcat:Catalog ;
     dcterms:hasPart
-         <http://www.opengis.net/ont/geosparql> ,
-         <http://www.opengis.net/ont/sf> ,
-         <http://www.opengis.net/def/geosparql/validator> ,
-         <http://www.opengis.net/def/function/geosparql> ,
-         <http://www.opengis.net/def/geosparql/reqs> ,
-         <http://www.opengis.net/def/rule/geosparql> ;
+        <http://www.opengis.net/def/function/geosparql> ,
+        <http://www.opengis.net/def/geosparql/reqs> ,
+        <http://www.opengis.net/def/geosparql/validator> ,
+        <http://www.opengis.net/def/rule/geosparql> ,
+        <http://www.opengis.net/ont/geosparql> ,
+        <http://www.opengis.net/ont/sf> ;
     skos:historyNote "This catalogue was was created in 2025 by the Geosemantics DWG"@en ;
     schema:codeRepository "https://github.com/opengeospatial/geosemantics-vocabs" ;
     schema:creator <https://defs.opengis.net/org/geosemantics-dwg> ;
