@@ -41,6 +41,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	owl:versionIRI :1.1 ;
 .
 
+:1.1 schema:name "1.1" .
 
 # #################################################################
 # #
