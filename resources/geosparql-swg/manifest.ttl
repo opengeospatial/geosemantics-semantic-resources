@@ -43,5 +43,10 @@ PREFIX schema: <https://schema.org/>
             prof:hasArtifact "../agents.ttl" ;
             prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
             schema:name "Agent information" ;
+        ] ,
+        [
+            prof:hasArtifact "profiles/geo.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "GeoSPARQL Profile" ;
         ] ;
 .

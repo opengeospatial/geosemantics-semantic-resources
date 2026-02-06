@@ -6,6 +6,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://www.opengis.net/def/catalog/geosparql>
     a dcat:Catalog ;
     schema:hasPart
+        <http://www.opengis.net/def/geosparql> ,
         <http://www.opengis.net/def/function/geosparql> ,
         <http://www.opengis.net/def/geosparql/reqs> ,
         <http://www.opengis.net/def/geosparql/validator> ,
