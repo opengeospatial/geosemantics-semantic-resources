@@ -37,8 +37,77 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
 	schema:copyrightNotice "(c) 2021 Open Geospatial Consortium" ;
 	schema:citation "http://www.opengis.net/doc/IS/geosparql/1.1"^^xsd:anyURI ;
-	owl:versionInfo "1.1" ;
+    owl:versionInfo """1.1.1 - 2026-02 - minor metadata changes to ensure Rainbow display
+
+1.1 - version as originally published with GeoSPARQL 1.1
+""" ;
 	owl:versionIRI :1.1 ;
+	rdfs:member
+        :gmlLiteral ,
+        :wktLiteral ,
+        :geoJSONLiteral ,
+        :kmlLiteral ,
+        :dggsLiteral ,
+        :defaultGeometry ,
+        :hasDefaultGeometry ,
+        :ehContains ,
+        :ehCoveredBy ,
+        :ehCovers ,
+        :ehDisjoint ,
+        :ehEquals ,
+        :ehInside ,
+        :ehMeet ,
+        :ehOverlap ,
+        :hasGeometry ,
+        :hasBoundingBox ,
+        :hasCentroid ,
+        :hasLength ,
+        :hasPerimeterLength ,
+        :hasArea ,
+        :hasVolume ,
+        :hasSpatialResolution ,
+        :hasSpatialAccuracy ,
+        :rcc8dc ,
+        :rcc8ec ,
+        :rcc8eq ,
+        :rcc8ntpp ,
+        :rcc8ntppi ,
+        :rcc8po ,
+        :rcc8tpp ,
+        :rcc8tppi ,
+        :sfContains ,
+        :sfCrosses ,
+        :sfDisjoint ,
+        :sfEquals ,
+        :sfIntersects ,
+        :sfOverlaps ,
+        :sfTouches ,
+        :sfWithin ,
+        :hasSize ,
+        :asGML ,
+        :asWKT ,
+        :asGeoJSON ,
+        :asKML ,
+        :asDGGS ,
+        :coordinateDimension ,
+        :dimension ,
+        :hasSerialization ,
+        :isEmpty ,
+        :isSimple ,
+        :spatialDimension ,
+        :hasMetricSpatialResolution ,
+        :hasMetricSpatialAccuracy ,
+        :hasMetricLength ,
+        :hasMetricPerimeterLength ,
+        :hasMetricArea ,
+        :hasMetricVolume ,
+        :hasMetricSize ,
+        :Feature ,
+        :FeatureCollection ,
+        :Geometry ,
+        :GeometryCollection ,
+        :SpatialObject ,
+        :SpatialObjectCollection ;
 .
 
 :1.1 schema:name "1.1" .
