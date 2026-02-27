@@ -1,0 +1,60 @@
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+
+sdo:GeoCoordinates
+    rdfs:subClassOf geo:Geometry ;
+.
+
+sdo:GeospatialGeometry
+    owl:equivalentClass geo:SpatialObject ;
+.
+
+sdo:Landform
+    rdfs:subClassOf geo:Feature ;
+.
+
+sdo:geo
+    rdfs:subPropertyOf geo:hasGeometry ;
+.
+
+sdo:geoCoveredBy
+    owl:equivalentProperty geo:ehCoveredBy ;
+.
+
+sdo:geoCovers
+    owl:equivalentProperty geo:ehCovers ;
+.
+
+sdo:geoCrosses
+    owl:equivalentProperty geo:sfCrosses ;
+.
+
+sdo:geoDisjoint
+    owl:equivalentProperty geo:sfDisjoint ;
+.
+
+sdo:geoEquals
+    owl:equivalentProperty geo:sfEquals ;
+.
+
+sdo:geoIntersects
+    owl:equivalentProperty geo:sfIntersects ;
+.
+
+sdo:geoOverlaps
+    owl:equivalentProperty geo:sfOverlaps ;
+.
+
+sdo:geoTouches
+    owl:equivalentProperty geo:sfTouches ;
+.
+
+sdo:geoWithin
+    owl:equivalentProperty geo:sfWithin ;
+.
+
+geo:Geometry
+    rdfs:subClassOf sdo:GeoShape ;
+.

@@ -13,8 +13,8 @@ PREFIX schema: <https://schema.org/>
         [
             prof:hasArtifact "catalogue.ttl" ;
             prof:hasRole mrr:CatalogueData ;
-            schema:description "The Open Geospatial Consortium's Geosemantics DWG's Semantic Web resources" ;
-            schema:name "Geosemantics DWG Catalogue"
+            schema:description "The Open Geospatial Consortium's Geosemantics GeoSPARQL standard's RDF resources" ;
+            schema:name "GeoSPARQL Catalogue"
         ] ,
         [
             dcterms:conformsTo <https://linked.data.gov.au/def/vocpub/validator> ;
@@ -48,5 +48,11 @@ PREFIX schema: <https://schema.org/>
             prof:hasArtifact "profiles/geo.ttl" ;
             prof:hasRole mrr:ResourceData ;
             schema:name "GeoSPARQL Profile" ;
+        ] ,
+        [
+            prof:hasArtifact "alignments.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "GeoSPARQL Alignments" ;
         ] ;
+
 .
