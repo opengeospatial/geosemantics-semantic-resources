@@ -1,6 +1,7 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX ns1: <http://linkedgeodata.org/meta/>
+PREFIX lgeo: <http://linkedgeodata.org/meta/>
+PREFIX ont: <http://www.opengis.net/ont/geosparql-alignments>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
@@ -134,300 +135,300 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     rdfs:subPropertyOf geo:rcc8tppi ;
 .
 
-ns1:sourceKey
+lgeo:sourceKey
     a owl:AnnotationProperty ;
 .
 
-ns1:sourceTag
+lgeo:sourceTag
     a owl:AnnotationProperty ;
 .
 
 <http://linkedgeodata.org/ontology/Abutters>
     a owl:Class ;
-    ns1:sourceKey "abutters" ;
+    lgeo:sourceKey "abutters" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/AerialwayThing>
     a owl:Class ;
-    ns1:sourceKey "aerialway" ;
+    lgeo:sourceKey "aerialway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/AerowayThing>
     a owl:Class ;
-    ns1:sourceKey "aeroway" ;
+    lgeo:sourceKey "aeroway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Alley>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Alley/key/service/value/alley> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Alley/key/service/value/alley> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Amenity>
     a owl:Class ;
-    ns1:sourceKey "amenity" ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Amenity/key/amenity/value/leisure> ;
+    lgeo:sourceKey "amenity" ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Amenity/key/amenity/value/leisure> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/BarrierThing>
     a owl:Class ;
-    ns1:sourceKey "barrier" ;
+    lgeo:sourceKey "barrier" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Boundary>
     a owl:Class ;
-    ns1:sourceKey "boundary" ;
+    lgeo:sourceKey "boundary" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Bump>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Bump/key/traffic_calming/value/bump> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Bump/key/traffic_calming/value/bump> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Chicane>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Chicane/key/traffic_calming/value/chicane> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Chicane/key/traffic_calming/value/chicane> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Choker>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Choker/key/traffic_calming/value/choker> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Choker/key/traffic_calming/value/choker> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Cushion>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Cushion/key/traffic_calming/value/cushion> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Cushion/key/traffic_calming/value/cushion> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/CyclewayThing>
     a owl:Class ;
-    ns1:sourceKey "cycleway" ;
+    lgeo:sourceKey "cycleway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/DriveWay>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/DriveWay/key/service/value/driveway> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/DriveWay/key/service/value/driveway> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/EmergencyThing>
     a owl:Class ;
-    ns1:sourceKey "emergency" ;
+    lgeo:sourceKey "emergency" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/HighwayThing>
     a owl:Class ;
-    ns1:sourceKey "highway" ;
+    lgeo:sourceKey "highway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/HistoricThing>
     a owl:Class ;
-    ns1:sourceKey "historic" ;
+    lgeo:sourceKey "historic" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Hump>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Hump/key/traffic_calming/value/hump> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Hump/key/traffic_calming/value/hump> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/IceRoad>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/IceRoad/key/ice_road/value/yes> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/IceRoad/key/ice_road/value/yes> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Intermittent>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Intermittent/key/intermittent/value/yes> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Intermittent/key/intermittent/value/yes> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Landuse>
     a owl:Class ;
-    ns1:sourceKey "landuse" ;
+    lgeo:sourceKey "landuse" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Leisure>
     a owl:Class ;
-    ns1:sourceKey "leisure" ;
+    lgeo:sourceKey "leisure" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/LockThing>
     a owl:Class ;
-    ns1:sourceKey "lock" ;
+    lgeo:sourceKey "lock" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/ManMadeThing>
     a owl:Class ;
-    ns1:sourceKey "man_made" ;
+    lgeo:sourceKey "man_made" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/MilitaryThing>
     a owl:Class ;
-    ns1:sourceKey "military" ;
+    lgeo:sourceKey "military" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/NaturalThing>
     a owl:Class ;
-    ns1:sourceKey "natural" ;
+    lgeo:sourceKey "natural" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Outcrop>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Outcrop/key/geological/value/outcrop> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Outcrop/key/geological/value/outcrop> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/PalaeontologicalSite>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/PalaeontologicalSite/key/geological/value/palaeontological_site> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/PalaeontologicalSite/key/geological/value/palaeontological_site> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/ParkingAisle>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/ParkingAisle/key/service/value/parking_aisle> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/ParkingAisle/key/service/value/parking_aisle> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Place>
     a owl:Class ;
-    ns1:sourceKey "place" ;
+    lgeo:sourceKey "place" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/PowerThing>
     a owl:Class ;
-    ns1:sourceKey "power" ;
+    lgeo:sourceKey "power" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/PublicTransportThing>
     a owl:Class ;
-    ns1:sourceKey "public_transport" ;
+    lgeo:sourceKey "public_transport" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/RailwayThing>
     a owl:Class ;
-    ns1:sourceKey "railway" ;
+    lgeo:sourceKey "railway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Roundabout>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Roundabout/key/junction/value/roundabout> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Roundabout/key/junction/value/roundabout> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/Route>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/Route/key/type/value/route> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/Route/key/type/value/route> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/RouteThing>
     a owl:Class ;
-    ns1:sourceKey "route" ;
+    lgeo:sourceKey "route" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/RumbleStrip>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/RumbleStrip/key/traffic_calming/value/rumble_strip> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/RumbleStrip/key/traffic_calming/value/rumble_strip> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/SportThing>
     a owl:Class ;
-    ns1:sourceKey "sport" ;
+    lgeo:sourceKey "sport" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TableBump>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TableBump/key/traffic_calming/value/table> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TableBump/key/traffic_calming/value/table> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TourismThing>
     a owl:Class ;
-    ns1:sourceKey "tourism" ;
+    lgeo:sourceKey "tourism" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrackType1>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrackType1/key/tracktype/value/grade1> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrackType1/key/tracktype/value/grade1> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrackType2>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrackType2/key/tracktype/value/grade2> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrackType2/key/tracktype/value/grade2> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrackType3>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrackType3/key/tracktype/value/grade3> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrackType3/key/tracktype/value/grade3> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrackType4>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrackType4/key/tracktype/value/grade4> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrackType4/key/tracktype/value/grade4> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrackType5>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrackType5/key/tracktype/value/grade5> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrackType5/key/tracktype/value/grade5> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TrafficCalming>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TrafficCalming/key/traffic_calming/value/yes> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TrafficCalming/key/traffic_calming/value/yes> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/TunnelCulvert>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/TunnelCulvert/key/tunnel/value/culvert> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/TunnelCulvert/key/tunnel/value/culvert> ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/WaterwayThing>
     a owl:Class ;
-    ns1:sourceKey "waterway" ;
+    lgeo:sourceKey "waterway" ;
     rdfs:subClassOf geo:Feature ;
 .
 
 <http://linkedgeodata.org/ontology/WinterRoad>
     a owl:Class ;
-    ns1:sourceTag <http://linkedgeodata.org/ontology/WinterRoad/key/winter_road/value/yes> ;
+    lgeo:sourceTag <http://linkedgeodata.org/ontology/WinterRoad/key/winter_road/value/yes> ;
     rdfs:subClassOf geo:Feature ;
 .
 
@@ -515,10 +516,15 @@ geo:SpatialObjectCollection
     rdfs:subClassOf <https://www.w3.org/TR/prov-o/Collection> ;
 .
 
-<http://www.opengis.net/ont/geosparql/alignments>
+ont:
     a owl:Ontology ;
     schema:description "Semantic alignments between GeoSPARQL 1.1 and 17 other ontologies." ;
     schema:name "GeoSPARQL Alignments Ontology" ;
+	schema:creator <https://defs.opengis.net/org/geosparql-swg> ;
+	schema:publisher <https://defs.opengis.net/org/ogc> ;
+	schema:dateCreated "2023-06-15"^^xsd:date ;
+	schema:dateModified "2024-01-29"^^xsd:date ;
+	schema:dateIssued "2024-01-29"^^xsd:date ;
 .
 
 <http://www.opengis.net/ont/sf#Polygon>
