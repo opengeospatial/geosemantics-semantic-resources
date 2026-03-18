@@ -1,10 +1,10 @@
 image::ogc.svg[350,350]
 
-== Geosemantics Vocabularies
+== Geosemantics Semantic Resources
 
-This repository contains https://en.wikipedia.org/wiki/Semantic_Web[Semantic Web] resources - vocabularies, ontologyes, validators - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
+This repository contains https://en.wikipedia.org/wiki/Semantic_Web[Semantic Web] resources - vocabularies, ontologies, validators - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
 
-The resources here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they cease to exist, management of the resources is taken over by the Geosemantics DWG.
+The resources here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they those SWgs cease to exist, management of their resources is taken over by the Geosemantics DWG.
 
 === Technical Information
 
@@ -24,11 +24,11 @@ We refer to vocabularies that have SKOS + other data model content as "SKOS+".
 
 ==== Ontology Model
 
-The ontologies in this repository are formulated according to a _profile_ of https://www.w3.org/TR/owl2-overview/[OWL] called https://w3id.org/profile/ontpub[OntPub] that mandates basic metadata for the ontology and classes, predicates and so on it defines.
+The ontologies in this repository are formulated according to a _profile_ of https://www.w3.org/TR/owl2-overview/[OWL] called https://linked.data.gov.au/def/ontpub[OntPub] that mandates basic metadata for the ontology and classes, predicates and so on it defines.
 
 ==== Validators Model
 
-Currently, all the validators in this repository are https://www.w3.org/TR/shacl/[SHACL] validators which also conform to OntPub but, when the in-development https://w3c.github.io/data-shapes/shacl12-profiling/[SHACL Profiling specification] is published, its recommendations will be followed.
+Currently, all the validators in this repository are https://www.w3.org/TR/shacl/[SHACL] validators which conform to https://linked.data.gov.au/def/valpub[ValPub profile] but, when the in-development https://w3c.github.io/data-shapes/shacl12-profiling/[SHACL Profiling specification] is published, its recommendations will be followed and this may change some elements of ValPub.
 
 ==== Management Tooling
 
