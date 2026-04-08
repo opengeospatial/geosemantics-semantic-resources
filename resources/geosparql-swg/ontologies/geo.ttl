@@ -34,7 +34,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	schema:dateIssued "2025-11-19"^^xsd:date ;
 	dcterms:replaces <http://www.opengis.net/ont/geosparql/1.0> ;
 	schema:description "An RDF/OWL vocabulary for representing spatial information"@en ;
-	schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
+	schema:license <http://purl.org/NET/rdflicense/:APACHE2.0> ;
 	schema:copyrightNotice "(c) 2021 Open Geospatial Consortium" ;
 	schema:citation "http://www.opengis.net/doc/IS/geosparql/1.1"^^xsd:anyURI ;
     owl:versionInfo """1.1.1 - 2026-02 - minor metadata changes to ensure Rainbow display

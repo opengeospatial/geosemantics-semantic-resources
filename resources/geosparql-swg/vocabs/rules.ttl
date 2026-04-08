@@ -17,7 +17,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 cs:
     a skos:ConceptScheme ;
     schema:dateCreated "2021-06-16"^^xsd:date ;
-    schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
+    schema:license <http://purl.org/NET/rdflicense/:APACHE2.0> ;
     schema:dateModified "2023-11-30"^^xsd:date ;
     schema:coyrightNotice "(c) 2023 Open Geospatial Consortium" ;
     dcterms:source <http://www.opengis.net/doc/geosparql/1.1> ;

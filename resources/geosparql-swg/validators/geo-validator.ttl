@@ -21,7 +21,7 @@ As of GeoSPARQL 1.1, this validator is not normative, only informative, however 
 	schema:dateCreated "2021-06-13"^^xsd:date ;
 	schema:dateModified "2022-03-10"^^xsd:date ;
 	schema:dateIssued "2025-11-19"^^xsd:date ;
-    schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
+    schema:license <http://purl.org/NET/rdflicense/:APACHE2.0> ;
 	schema:copyrightNotice "(c) 2022 Open Geospatial Consortium" ;
 	schema:citation "http://www.opengis.net/doc/IS/geosparql/1.1"^^xsd:anyURI ;
 	owl:versionInfo "1.1" ;
