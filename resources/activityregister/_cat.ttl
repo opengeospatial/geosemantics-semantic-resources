@@ -1,0 +1,26 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<http://w3id.org/ogc/reg/roatr-cat>
+    a dcat:Catalog ;
+    dcterms:hasPart
+        <http://w3id.org/ogc/reg/roatr> ,
+        <https://w3id.org/ogc/rim> ,
+        <https://w3id.org/ogc/rim/validator/roatr> ;
+    skos:historyNote "This catalogue was was created in 2026 by the OSPD 2026 team for management by the Geosemantics DWG"@en ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources" ;
+    schema:copyrightNotice "(c) OGC, 2026" ;
+    schema:name "Catalogue for the OGC Register of Activity Types Register" ;
+    schema:description """This catalog contains the resources used to support the OGC's Register of Activity Types Register which is online at <http://w3id.org/ogc/reg/roatr>.
+
+    This catalogue is distinct from the ROATR itself as that only contains Registers (of Activity Types) whereas management tasks for the ROATR also needs models, vocabularies, validators and so on. It's the latter that this catalogue lists and manages.""" ;
+    schema:creator <https://defs.opengis.net/org/ospd-2026> ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+    schema:copyrightHolder <https://defs.opengis.net/org/ogc> ;
+    schema:dateCreated "2026-10-21"^^xsd:date ;
+    schema:dateModified "2026-10-21"^^xsd:date ;
+    # schema:dateIssued "2026-10-21"^^xsd:date ; --  not yet published
+.

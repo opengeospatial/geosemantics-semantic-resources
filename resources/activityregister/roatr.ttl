@@ -1,0 +1,33 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX demo: <http://ospd/demo/>
+PREFIX istatus: <https://def.isotc211.org/codeset/ItemStatus/>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<http://w3id.org/ogc/reg/roatr>
+    a rim:Register ;
+    rim:registerManager <https://defs.opengis.net/org/ogc> ;
+    schema:name "OGC Register of Activity Types Register" ;
+    schema:description """The Open Geospatial Consortium's Register that contains registers of Activity Types as its Register Items.
+
+The purpose of this register is to list, in one central, discoverable place, all the registers of Activity Types created by organizations wishing to define geoprocessing, Machine Learning and other types of processes that can be applied to data. The purpose of those registers is to provide activity type definitions that can be referenced in the provenance traces of workflows, thus leading to more transparent and potentially repeatable geoprocessing tasks.
+
+This register is constituted according to the Register Item Model, a Semantic Web interpretation of ISO 19135:2026.""" ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-dwg"^^xsd:anyURI ;
+    schema:copyrightNotice "(c) OGC, 2026" ;
+    schema:creator <https://defs.opengis.net/org/ospd-2026> ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+    schema:copyrightHolder <https://defs.opengis.net/org/ogc> ;
+    schema:dateCreated "2026-10-21"^^xsd:date ;
+    schema:dateModified "2026-10-21"^^xsd:date ;
+    # schema:dateIssued "2026-10-21"^^xsd:date ; --  not yet published
+.
+
+<http://w3id.org/ogc/reg/ogcactivites>
+    a rim:RegisterItem ;
+    rim:inRegister <http://w3id.org/ogc/reg/roatr> ;
+    rim:registerManager <https://defs.opengis.net/org/ogc> ;
+    schema:name "OGC Activities Register" ;
+.

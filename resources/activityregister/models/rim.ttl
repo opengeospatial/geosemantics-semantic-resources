@@ -1,0 +1,458 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rim: <https://w3id.org/ogc/rim/> .
+@prefix ont: <https://w3id.org/ogc/rim> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rim:ConceptSystem a owl:Class ;
+    skos:prefLabel "Concept system"@en ;
+    skos:definition "A collection of related concepts maintained by a register's concept plane."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:ConceptScheme .
+
+rim:accessCommitment a skos:Concept,
+        rim:CommitmentCategory ;
+    skos:definition "A commitment about access to metadata, to current content, or to historic content."@en ;
+    skos:inScheme rim:CommitmentCategoryScheme ;
+    skos:prefLabel "access"@en .
+
+rim:actionType a owl:ObjectProperty ;
+    skos:prefLabel "action type"@en ;
+    skos:definition "Relates a Registered Action to a Registered Action Type"@en ;
+    rdfs:domain rim:RegisterAction ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterActionType .
+
+rim:additionAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A new register item or concept version is added to the register."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "addition"@en .
+
+rim:changeClassification a owl:ObjectProperty ;
+    skos:prefLabel "change classification"@en ;
+    skos:definition "Relates a Register Action to a Change Classification"@en ;
+    rdfs:domain rim:RegisterAction ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:ChangeClassification .
+
+rim:clarifyingChange a skos:Concept,
+        rim:ChangeClassification ;
+    skos:definition "The change has minor impact, such as an editorial correction, and causes no compatibility issue for downstream users."@en ;
+    skos:inScheme rim:ChangeClassificationScheme ;
+    skos:prefLabel "clarifying"@en .
+
+rim:commitmentCategory a owl:ObjectProperty ;
+    skos:prefLabel "commitment category"@en ;
+    skos:definition "Relates a Commitment to a Commitment Category"@en ;
+    rdfs:domain rim:Commitment ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:CommitmentCategory .
+
+rim:controlBody a owl:ObjectProperty ;
+    skos:prefLabel "control body"@en ;
+    skos:definition "Subject-matter experts who decide whether proposed content changes are approved, and who publish and maintain the acceptance criteria for the item classes they govern."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent .
+
+rim:correctionalChange a skos:Concept,
+        rim:ChangeClassification ;
+    skos:definition "A correction to the record itself, available only in the most capable ISO 19135:2026 register types."@en ;
+    skos:inScheme rim:ChangeClassificationScheme ;
+    skos:prefLabel "correctional"@en .
+
+rim:definedIn a owl:ObjectProperty ;
+    skos:prefLabel "defined in"@en ;
+    skos:definition "Relates a register item class to the register that defines it. A register item class may be reused across registers; this records where it originates."@en ;
+    rdfs:domain rim:RegisterItemClass ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:Register .
+
+rim:definesSubstantiveChange a owl:DatatypeProperty ;
+    skos:prefLabel "defines substantive change"@en ;
+    skos:definition "Free-text statement, required by ISO 19135:2026 to be documented in the register specification, of what counts as a substantive (as opposed to clarifying) change for this register."@en ;
+    rdfs:domain rim:RegisterSpecification ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range xsd:string .
+
+rim:deletionAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A register item is removed from the register."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "deletion"@en .
+
+rim:functionalIdentifier a owl:DatatypeProperty ;
+    skos:prefLabel "functional identifier"@en ;
+    skos:definition "A redirectable identifier: what it resolves to may change over time so that it continues to serve its original intent, for example \"the current version of this concept\"."@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range xsd:anyURI .
+
+rim:hasAction a owl:ObjectProperty ;
+    skos:prefLabel "has action"@en ;
+    skos:definition "Relates a register item to a recorded action performed on it."@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterAction ;
+    owl:inverseOf rim:appliesTo .
+
+rim:hasCommitment a owl:ObjectProperty ;
+    skos:prefLabel "has commitment"@en ;
+    skos:definition "Relates a Register to a Commitment."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:Commitment .
+
+rim:hasSpecification a owl:ObjectProperty ;
+    skos:prefLabel "has specification"@en ;
+    skos:definition "Relates a register to the register specification that documents its governance."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterSpecification .
+
+rim:inRegister a owl:ObjectProperty ;
+    skos:prefLabel "in register"@en ;
+    skos:altLabel "belongs to"@en ;
+    skos:definition "Relates a register item or a concept version to a register that holds it."@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:Register .
+
+rim:invalid a skos:Concept,
+        rim:ValidityStatus ;
+    skos:definition "The register item or concept version is not currently in force."@en ;
+    skos:inScheme rim:ValidityStatusScheme ;
+    skos:prefLabel "invalid"@en .
+
+rim:invalidationAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A register item or concept version is marked as no longer in force."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "invalidation"@en .
+
+rim:isDeleted a owl:DatatypeProperty ;
+    skos:prefLabel "is deleted"@en ;
+    skos:definition "Optional flag; the register owner decides and documents in the register specification whether this register uses deletion at all."@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range xsd:boolean .
+
+rim:isRedacted a owl:DatatypeProperty ;
+    skos:prefLabel "is redacted"@en ;
+    skos:definition "Optional flag; the register owner decides and documents in the register specification whether this register uses redaction at all."@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range xsd:boolean .
+
+rim:itemClass a owl:ObjectProperty ;
+    skos:prefLabel "item class"@en ;
+    skos:definition "Relates a register item to the register item class it belongs to. Every register item has exactly one item class; validation rules are attached at this level."@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItemClass .
+
+rim:objectIdentifier a owl:DatatypeProperty ;
+    skos:prefLabel "object identifier"@en ;
+    skos:definition "An identifier permanently bound to one object; it never redirects and never comes to refer to something else."@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range xsd:anyURI .
+
+rim:persistenceCommitment a skos:Concept,
+        rim:CommitmentCategory ;
+    skos:definition "A commitment about identifier persistence, metadata persistence and retention, content persistence and retention, or historic persistence with full traceability."@en ;
+    skos:inScheme rim:CommitmentCategoryScheme ;
+    skos:prefLabel "persistence"@en .
+
+rim:proposer a owl:ObjectProperty ;
+    skos:prefLabel "proposer"@en ;
+    skos:definition "Party that proposed a register action: may clarify on request and may withdraw the proposal at any time before a decision is made. Also called \"register change proposer\" or, in editions of ISO 19135 before 2026, \"submitting organization\"."@en ;
+    rdfs:domain rim:RegisterAction ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+rim:publicationStatus a owl:ObjectProperty ;
+    skos:prefLabel "publication status"@en ;
+    skos:definition "Relates a Register Item or a Concept Version to a Publication Stations"@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:PublicationStatus .
+
+rim:publishAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A register item or concept version is made visible to register users."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "publish"@en .
+
+rim:published a skos:Concept,
+        rim:PublicationStatus ;
+    skos:definition "The register item or concept version is currently visible to register users."@en ;
+    skos:inScheme rim:PublicationStatusScheme ;
+    skos:prefLabel "published"@en .
+
+rim:realizes a owl:ObjectProperty ;
+    skos:prefLabel "realizes"@en ;
+    skos:definition "Relates a register item, in the content plane, to the concept version it represents, in the concept plane. Separating the two lets a register evolve what something means independently of how it is represented."@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:ConceptVersion .
+
+rim:isRealizedBy a owl:ObjectProperty ;
+    skos:prefLabel "realizes"@en ;
+    skos:definition "Relates a concept version to the register item in the content plane that represents it. Inverse of realizes"@en ;
+    rdfs:domain rim:ConceptVersion ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItem ;
+    skos:historyNote "The predicate was defined by the OGC to allow Registered Items to appear in multiple registers by a qualified relations pattern via Concept Version" ;
+    owl:inverseOf rim:realizes .
+
+rim:redactionAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "Content is removed from a register item for legal or privacy reasons, while the record of the item is retained."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "redaction"@en .
+
+rim:registerManager a owl:ObjectProperty ;
+    skos:prefLabel "register manager"@en ;
+    skos:definition "Party responsible for content governance: receives proposals, verifies eligibility, forwards them to the control body, implements approved changes and informs proposers. Procedural, not a content-decision role."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent .
+
+rim:registerOwner a owl:ObjectProperty ;
+    skos:prefLabel "register owner"@en ;
+    skos:definition "Party with ultimate responsibility for the register: creates the register specification, appoints the other roles, sets proposer eligibility, access terms, process time limits and the appeal procedure."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent .
+
+rim:registerSystemManager a owl:ObjectProperty ;
+    skos:prefLabel "register system manager"@en ;
+    skos:definition "Party that manages the register system (the information system), as distinct from the register's content. Called \"registry manager\" in editions of ISO 19135 before 2026."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent .
+
+rim:registerUser a owl:ObjectProperty ;
+    skos:prefLabel "register user"@en ;
+    skos:definition "A party recognised as accessing the register's content, potentially at a differentiated access level."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range prov:Agent .
+
+rim:runsOn a owl:ObjectProperty ;
+    skos:prefLabel "runs on"@en ;
+    skos:definition "Relates a register to the register system that hosts it."@en ;
+    rdfs:domain rim:Register ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterSystem .
+
+rim:substantiveChange a skos:Concept,
+        rim:ChangeClassification ;
+    skos:definition "The change has major impact on use, typically altering semantics or technical meaning; downstream users are obliged to act."@en ;
+    skos:inScheme rim:ChangeClassificationScheme ;
+    skos:prefLabel "substantive"@en .
+
+rim:supersededBy a owl:ObjectProperty ;
+    skos:prefLabel "superseded by"@en ;
+    skos:definition "Relates a register item to the register item that replaces it. Supersession is a relation, not a status: a superseded item may still be valid."@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItem ;
+    rdfs:subPropertyOf rim:relatedItem ;
+    owl:inverseOf rim:supersedes .
+
+rim:supersessionAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A register item or concept version is replaced by another, recorded as a relation rather than a status."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "supersession"@en .
+
+rim:transparencyCommitment a skos:Concept,
+        rim:CommitmentCategory ;
+    skos:definition "A commitment about the transparency of metadata, of content, or of history."@en ;
+    skos:inScheme rim:CommitmentCategoryScheme ;
+    skos:prefLabel "transparency"@en .
+
+rim:unpublishAction a skos:Concept,
+        rim:RegisterActionType ;
+    skos:definition "A register item or concept version is made no longer visible to register users, without affecting its validity."@en ;
+    skos:inScheme rim:RegisterActionTypeScheme ;
+    skos:prefLabel "unpublish"@en .
+
+rim:unpublished a skos:Concept,
+        rim:PublicationStatus ;
+    skos:definition "The register item or concept version is not currently visible to register users. Combined with a valid validity status, this is what earlier editions of ISO 19135 called \"retired\"."@en ;
+    skos:inScheme rim:PublicationStatusScheme ;
+    skos:prefLabel "unpublished"@en .
+
+rim:valid a skos:Concept,
+        rim:ValidityStatus ;
+    skos:definition "The register item or concept version is currently in force."@en ;
+    skos:inScheme rim:ValidityStatusScheme ;
+    skos:prefLabel "valid"@en .
+
+rim:validatedBy a owl:ObjectProperty ;
+    skos:prefLabel "validated by"@en ;
+    skos:definition "Points from a register item class to the executable rule set (for example a SHACL shape published as an OGC Building Block) that expresses its data requirements."@en ;
+    rdfs:domain rim:RegisterItemClass ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rdfs:Resource .
+
+rim:validityStatus a owl:ObjectProperty ;
+    skos:prefLabel "validity status"@en ;
+    skos:definition "Relates a Registered Item or a Concept Version to a Validity Status"@en ;
+    rdfs:domain [ owl:unionOf ( rim:RegisterItem rim:ConceptVersion ) ] ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:ValidityStatus .
+
+rim:versionOf a owl:ObjectProperty ;
+    skos:prefLabel "version of"@en ;
+    skos:definition "Relates a Concept Version to a Concept"@en ;
+    rdfs:domain rim:ConceptVersion ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:Concept .
+
+rim:Concept a owl:Class ;
+    skos:prefLabel "Concept"@en ;
+    skos:definition "A unit of meaning, independent of how it is represented. Use skos:inScheme to relate a concept to its rim:ConceptSystem, and skos:prefLabel/skos:definition for its label and definition."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:RegisterSystem a owl:Class ;
+    skos:prefLabel "Register system"@en ;
+    skos:definition "The information system a register runs on. Called a \"registry\" in editions of ISO 19135 before 2026. Distinct from the register itself, so that custody transfer, mirroring or platform migration do not change what the register is."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:appliesTo a owl:ObjectProperty ;
+    skos:prefLabel "applies to"@en ;
+    skos:definition "Relates a register action to the register item it acted upon."@en ;
+    rdfs:domain rim:RegisterAction ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItem .
+
+rim:supersedes a owl:ObjectProperty ;
+    skos:prefLabel "supersedes"@en ;
+    skos:definition "Inverse of superseded by"@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItem ;
+    rdfs:subPropertyOf rim:relatedItem .
+
+rim:Commitment a owl:Class ;
+    skos:prefLabel "Commitment"@en ;
+    skos:definition "A specific, documented promise a register makes to its users, against which it can be assessed. Use dct:description for the promise text."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:PublicationStatusScheme a skos:ConceptScheme ;
+    skos:definition "The two values of the required publication concern (ISO 19135:2026 §4), independent of validity status."@en ;
+    skos:prefLabel "Publication status"@en .
+
+rim:RegisterSpecification a owl:Class ;
+    skos:prefLabel "Register specification"@en ;
+    skos:definition "The document that states a register's purpose, scope, roles, processes, content requirements, identifier and versioning schemes, proposer eligibility criteria, and the register's definition of a substantive change. The single most important artefact in the ISO 19135:2026 model."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:ValidityStatusScheme a skos:ConceptScheme ;
+    skos:definition "The two values of the required validity concern (ISO 19135:2026 §4). A register may not define further values for this concern."@en ;
+    skos:prefLabel "Validity status"@en .
+
+rim:relatedItem a owl:ObjectProperty ;
+    skos:prefLabel "related item"@en ;
+    skos:definition "Generic, extensible relation between two register items. Registers define more specific relations (for example rim:supersededBy, or their own) as sub-properties of this one."@en ;
+    rdfs:domain rim:RegisterItem ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:range rim:RegisterItem .
+
+rim:ChangeClassificationScheme a skos:ConceptScheme ;
+    skos:definition "How a register action's impact on downstream users is classified (ISO 19135:2026 §4). The register specification must document, per register, what counts as substantive."@en ;
+    skos:prefLabel "Change classification"@en .
+
+rim:CommitmentCategoryScheme a skos:ConceptScheme ;
+    skos:definition "The three groups of promise a register may make to its users (ISO 19135:2026 §9)."@en ;
+    skos:prefLabel "Commitment category"@en .
+
+rim:PublicationStatus a owl:Class ;
+    skos:prefLabel "Publication status"@en ;
+    skos:definition "Whether a register item or concept version is currently published (visible) or unpublished. Required, and independent of validity — a valid item need not be published, and what earlier editions called \"retired\" is the combination valid + unpublished."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:RegisterItemClass a owl:Class ;
+    skos:prefLabel "Register item class"@en ;
+    skos:definition "A defined abstraction of a set of register items sharing common characteristics. Carries the data requirements for those items; this is the unit that validation rules attach to."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:ValidityStatus a owl:Class ;
+    skos:prefLabel "Validity status"@en ;
+    skos:definition "Whether a register item or concept version is currently valid or invalid. Required."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:ChangeClassification a owl:Class ;
+    skos:prefLabel "Change classification"@en ;
+    skos:definition "Whether a change is substantive (major impact on use, typically altering semantics), clarifying/non-substantive (minor, editorial), or correctional (available only in the most capable register types, for correcting the record itself). The register specification must document what counts as substantive for that register."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:CommitmentCategory a owl:Class ;
+    skos:prefLabel "Commitment category"@en ;
+    skos:definition "One of the three groups of commitment a register may make: access; persistence, integrity and traceability; or transparency."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:RegisterAction a owl:Class ;
+    skos:prefLabel "Register action"@en ;
+    skos:altLabel "Change"@en ;
+    skos:definition "A defined, recorded way in which register content changes. Every decision — automated or human — produces a retained record: who or what decided, under which rule set version, when, and on what justification."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf prov:Activity .
+
+rim:RegisterActionTypeScheme a skos:ConceptScheme ;
+    skos:definition "The defined ways register content changes (ISO 19135:2026 §4). Extensible: a register may define further action types in its register specification."@en ;
+    skos:prefLabel "Register action type"@en .
+
+rim:ConceptVersion a owl:Class ;
+    skos:prefLabel "Concept version"@en ;
+    skos:definition "A version of a concept. Concept versions, not concepts themselves, carry validity and publication status: a concept's meaning can be stable while a particular version of it is superseded."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:RegisterActionType a owl:Class ;
+    skos:prefLabel "Register action type"@en ;
+    skos:definition "The kind of change a register action makes: addition, publication, unpublication, invalidation, supersession, redaction or deletion. Extensible; a register may define further action types."@en ;
+    rdfs:isDefinedBy ont: ;
+    rdfs:subClassOf skos:Concept .
+
+rim:Register a owl:Class ;
+    skos:prefLabel "Register"@en ;
+    skos:definition "A managed collection of information together with the processes that govern it. A register is distinguished from a plain dataset or database by being governed through defined processes (ISO 19135:2026)."@en ;
+    rdfs:isDefinedBy rim: .
+
+rim:RegisterItem a owl:Class ;
+    skos:prefLabel "Register item"@en ;
+    skos:definition "The concrete data held in a register's content plane. Realises a concept version where the register maintains a concept plane; stands alone, with its own name and definition, in a content-only register."@en ;
+    rdfs:isDefinedBy rim: .
+
+ont: a owl:Ontology ;
+    skos:definition "A base RDF/OWL and SHACL model for register items, register item classes and register governance metadata, aligned with ISO 19135:2026 (Geographic information — Registration and register governance)."@en ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skos:prefLabel "Registered Item Model"@en ;
+    owl:versionIRI rim:1 ;
+    schema:codeRepository "https://github.com/ogcincubator/registered-item-model/"^^xsd:anyURI ;
+    schema:copyrightNotice "Copyright for this ontology has not yet been established" ;
+    schema:creator <https://defs.opengis.net/org/ospd-2026> ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+    schema:copyrightHolder <https://defs.opengis.net/org/ogc> ;
+    schema:dateCreated "2026-09-15"^^xsd:date ;
+    schema:dateModified "2026-10-21"^^xsd:date ;
+    schema:dateIssued "2026-10-21"^^xsd:date ;
+    skos:historyNote "2026-09: This ontology was generated partly using AI based on the OGC's LLM skills in https://github.com/ogcincubator/ogc-llm-skills"
+.
+
