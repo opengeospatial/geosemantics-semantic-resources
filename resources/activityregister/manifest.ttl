@@ -1,0 +1,31 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX mrr: <https://prez.dev/ManifestResourceRoles/>
+PREFIX prez: <https://prez.dev/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+
+[]    a prez:Manifest ;
+    prof:hasResource 
+        [
+            dcterms:conformsTo "validators/rim-reg.ttl" ;
+            prof:hasArtifact "roatr.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+        ] ,
+        [
+            dcterms:conformsTo <https://linked.data.gov.au/def/ontpub/validator> ;
+            prof:hasArtifact "models/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+        ] ,
+        [
+            dcterms:conformsTo <https://linked.data.gov.au/def/valpub/validator> ;
+            prof:hasArtifact "validators/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+        ] ,
+        [
+            prof:hasArtifact "_cat.ttl" ;
+            prof:hasRole mrr:CatalogueData ;
+        ] ,
+        [
+            prof:hasArtifact "_background/*.ttl" ;
+            prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
+        ] ;
+.

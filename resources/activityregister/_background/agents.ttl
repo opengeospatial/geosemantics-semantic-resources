@@ -1,0 +1,17 @@
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://defs.opengis.net/org/ogc>
+    a schema:Organization ;
+    schema:name "Open Geospatial Consortium" ;
+    schema:url "https://www.ogc.org/"^^xsd:anyURI ;
+.
+
+
+<https://defs.opengis.net/org/ospd-2026>
+    a schema:Organization ;
+    schema:name "Open Science Persistent Demonstrator Project Group, 2026" ;
+    schema:url "https://www.ogc.org/initiatives/open-science-persistent-demonstrator-2026/"^^xsd:anyURI ;
+    schema:parentOrganization <https://defs.opengis.net/org/ogc> ;
+.

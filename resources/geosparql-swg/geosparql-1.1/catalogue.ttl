@@ -16,7 +16,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         <http://www.opengis.net/ont/geosparql-alignments> ,
         <http://www.opengis.net/ont/sf> ;
     skos:historyNote "This catalogue was was created in 2025 by the Geosemantics DWG"@en ;
-    schema:codeRepository "https://github.com/opengeospatial/geosemantics-vocabs" ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources" ;
     schema:creator <https://defs.opengis.net/org/geosemantics-dwg> ;
     schema:dateCreated "2025"^^xsd:gYear ;
     schema:dateModified "2025-09-12"^^xsd:date ;

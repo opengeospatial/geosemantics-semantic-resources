@@ -1,0 +1,108 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX val: <https://w3id.org/ogc/rim/validator/register/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+val:Register
+    a sh:NodeShape ;
+    dcterms:source "https://w3id.org/ogc/rim"^^xsd:anyURI ;
+    rdfs:isDefinedBy <https://w3id.org/ogc/rim/validator/register> ;
+    sh:property 
+        [
+            sh:message "A Register must have a title using skos:prefLabel or schema:name."@en ;
+            sh:minCount 1 ;
+            sh:path
+                [
+                    sh:alternativePath (
+                        skos:prefLabel
+                        schema:name
+                    ) ;
+                ] ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "A Schema.org definition must be a single string without a language tag."@en ;
+            sh:path schema:description ;
+        ] ,
+        [
+            sh:datatype rdf:langString ;
+            sh:message "SKOS titles must have language tags and at most one title per language."@en ;
+            sh:path skos:prefLabel ;
+            sh:uniqueLang true ;
+        ] ,
+        [
+            sh:datatype rdf:langString ;
+            sh:message "SKOS definitions must have language tags and at most one definition per language."@en ;
+            sh:path skos:definition ;
+            sh:uniqueLang true ;
+        ] ,
+        [
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:message "A Register must have exactly one modification date with datatype xsd:date."@en ;
+            sh:minCount 1 ;
+            sh:path schema:dateModified ;
+        ] ,
+        [
+            sh:class schema:Organization ;
+            sh:maxCount 1 ;
+            sh:message "A Register must have exactly one register manager that is a schema:Organization."@en ;
+            sh:minCount 1 ;
+            sh:path rim:registerManager ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "A Schema.org title must be a single string without a language tag."@en ;
+            sh:path schema:name ;
+        ] ,
+        [
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:message "A Register must have exactly one creation date with datatype xsd:date."@en ;
+            sh:minCount 1 ;
+            sh:path schema:dateCreated ;
+        ] ,
+        [
+            sh:message "A Register must have a definition using skos:definition or schema:description."@en ;
+            sh:minCount 1 ;
+            sh:path
+                [
+                    sh:alternativePath (
+                        skos:definition
+                        schema:description
+                    ) ;
+                ] ;
+        ] ;
+    sh:targetClass rim:Register ;
+    schema:description "A Register must have a title, a definition, exactly one organisation as register manager and exactly one creation and modification date."@en ;
+    schema:name "Register"@en ;
+.
+
+<https://w3id.org/ogc/rim/validator/register>
+    a sh:ShapesGraph ;
+    dcterms:conformsTo <https://linked.data.gov.au/def/valpub> ;
+    dcterms:source "https://w3id.org/ogc/rim"^^xsd:anyURI ;
+    owl:versionIRI val:2026-10-21 ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources"^^xsd:anyURI ;
+    schema:copyrightHolder <https://defs.opengis.net/org/ogc> ;
+    schema:creator <https://defs.opengis.net/org/ogc> ;
+    schema:dateCreated "2026-10-21"^^xsd:date ;
+    schema:dateModified "2026-10-21"^^xsd:date ;
+    schema:description "Validates the title, definition, register manager and dates of RIM Registers. Only validates a Register, not the items in it"@en ;
+    schema:name "RIM Register Validator"@en ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+.
+
+<https://defs.opengis.net/org/ogc>
+    a schema:Organization ;
+    schema:name "Open Geospatial Consortium" ;
+    schema:url "https://www.ogc.org/"^^xsd:anyURI ;
+.
