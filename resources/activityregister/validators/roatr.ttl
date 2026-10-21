@@ -86,7 +86,38 @@ val:Register
     schema:name "Register"@en ;
 .
 
-<https://w3id.org/ogc/rim/validator/register>
+val:RegisterItem
+    a sh:NodeShape ;
+    dcterms:source "https://w3id.org/ogc/rim"^^xsd:anyURI ;
+    rdfs:isDefinedBy <https://w3id.org/ogc/rim/validator/roatr> ;
+    sh:property 
+        [
+            sh:hasValue <http://w3id.org/ogc/reg/roatr> ;
+            sh:maxCount 1 ;
+            sh:message "A Register Item must belong to exactly one register: http://w3id.org/ogc/reg/roatr."@en ;
+            sh:minCount 1 ;
+            sh:path rim:inRegister ;
+        ] ,
+        [
+            sh:class schema:Organization ;
+            sh:maxCount 1 ;
+            sh:message "A Register Item must have exactly one register manager that is a schema:Organization."@en ;
+            sh:minCount 1 ;
+            sh:path rim:registerManager ;
+        ] ,
+        [
+            sh:maxCount 1 ;
+            sh:message "A Register Item must have exactly one schema:name value that is a literal."@en ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path schema:name ;
+        ] ;
+    sh:targetClass rim:RegisterItem ;
+    schema:description "A Register Item must have exactly one literal name, belong to the ROATR register and have exactly one organisation as its register manager."@en ;
+    schema:name "Register Item"@en ;
+.
+
+<https://w3id.org/ogc/rim/validator/roatr>
     a sh:ShapesGraph ;
     dcterms:conformsTo <https://linked.data.gov.au/def/valpub> ;
     dcterms:source "https://w3id.org/ogc/rim"^^xsd:anyURI ;
@@ -96,7 +127,7 @@ val:Register
     schema:creator <https://defs.opengis.net/org/ogc> ;
     schema:dateCreated "2026-10-21"^^xsd:date ;
     schema:dateModified "2026-10-21"^^xsd:date ;
-    schema:description "Validates the title, definition, register manager and dates of RIM Registers. Only validates a Register, not the items in it"@en ;
+    schema:description "Validates the title, definition, register manager and dates of RIM Registers. Also validates Register Item names, membership and register managers"@en ;
     schema:name "RIM Register Validator"@en ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
 .

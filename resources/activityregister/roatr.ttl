@@ -25,10 +25,9 @@ This register is constituted according to the Register Item Model, a Semantic We
     # schema:dateIssued "2026-10-21"^^xsd:date ; --  not yet published
 .
 
-
 <http://w3id.org/ogc/reg/ogcactivites>
     a rim:RegisterItem ;
     rim:inRegister <http://w3id.org/ogc/reg/roatr> ;
-    schema:name "OGC Activites Register" ;
-
+    rim:registerManager <https://defs.opengis.net/org/ogc> ;
+    schema:name "OGC Activities Register" ;
 .

@@ -6,7 +6,7 @@ PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 []    a prez:Manifest ;
     prof:hasResource 
         [
-            dcterms:conformsTo "validators/rim-reg.ttl" ;
+            dcterms:conformsTo "validators/roatr.ttl" ;
             prof:hasArtifact "roatr.ttl" ;
             prof:hasRole mrr:ResourceData ;
         ] ,

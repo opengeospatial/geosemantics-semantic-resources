@@ -9,7 +9,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:hasPart
         <http://w3id.org/ogc/reg/roatr> ,
         <https://w3id.org/ogc/rim> ,
-        <https://w3id.org/ogc/rim/validator/register> ;
+        <https://w3id.org/ogc/rim/validator/roatr> ;
     skos:historyNote "This catalogue was was created in 2026 by the OSPD 2026 team for management by the Geosemantics DWG"@en ;
     schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources" ;
     schema:copyrightNotice "(c) OGC, 2026" ;
