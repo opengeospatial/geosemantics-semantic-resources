@@ -1,0 +1,24 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://www.opengis.net/def/catalog/ggld>
+    a dcat:Catalog ;
+    dcterms:hasPart
+        geo:dggsLiteral ,
+        geo:geoJSONLiteral ,
+        geo:gmlLiteral ,
+        geo:kmlLiteral ,
+        geo:wktLiteral ;
+    skos:historyNote "This catalogue was was created in 2026 by the Geosemantics DWG"@en ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources"^^xsd:anyURI ;
+    schema:creator <https://defs.opengis.net/org/geosemantics-dwg> ;
+    schema:dateCreated "2025"^^xsd:gYear ;
+    schema:dateModified "2025-09-12"^^xsd:date ;
+    schema:description "A register of RDF literal datatypes that can be used to represent the serialization of a GeoSPARQL geo:Geometry object." ;
+    schema:name "GeoSPARQL Geometry Datatypes Register" ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+.
