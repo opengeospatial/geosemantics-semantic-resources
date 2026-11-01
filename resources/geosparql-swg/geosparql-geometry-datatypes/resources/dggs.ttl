@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-geo:wktLiteral
+geo:dggsLiteral
     a rdfs:Datatype ;
     dcterms:description "A textual serialization of a Discrete Global Grid System (DGGS) Geometry object." ;
     dcterms:title "DGGS Literal" ;
