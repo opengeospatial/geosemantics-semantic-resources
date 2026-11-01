@@ -1,0 +1,51 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov1: <http://www.w3.org/ns/prov-o#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+geo:wkbLiteral
+    a rdfs:Datatype ;
+    dcterms:description "A Well-known Binary serialization of a Geometry object."@en ;
+    dcterms:title "Well-known Binary literal"@en ;
+    dcterms:conformsTo "https://docs.ogc.org/is/06-103r4/06-103r4.pdf"^^xsd:anyURI ;
+    skos:example "010300000001000000050000006666666666E654C0CDCCCCCCCC0C4140CDCCCCCCCCCC54C0CDCCCCCCCC0C4140CDCCCCCCCCCC54C000000000004041406666666666E654C000000000004041406666666666E654C0CDCCCCCCCC0C4140"^^geo:wktLiteral ;
+    geo:is3dCapable true ;
+    geo:is2dCapable true ;
+    geo:isCrsAware true ;
+    geo:supportsGeometryType
+        sf:Curve ,
+        sf:Envelope ,
+        sf:Geometry ,
+        sf:GeometryCollection ,
+        sf:Line ,
+        sf:LineString ,
+        sf:LinearRing ,
+        sf:MultiCurve ,
+        sf:MultiLineString ,
+        sf:MultiPoint ,
+        sf:MultiPolygon ,
+        sf:MultiSurface ,
+        sf:Point ,
+        sf:Polygon ,
+        sf:PolyhedralSurface ,
+        sf:Surface ,
+        sf:TIN ,
+        sf:Triangle ;
+    prov1:qualifiedAttribution
+        [
+            prov1:agent <https://defs.opengis.net/org/geosparql-swg> ;
+            prov1:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
+        ] ;
+    rim:hasAction
+        [
+            dcterms:isReplacedBy <https://www.opengis.net/def/vstatus/valid> ;
+            prov1:atTime "2026-10-29"^^xsd:date ;
+            rim:affectedProperty rim:validityStatus ;
+            rim:proposer <https://defs.opengis.net/org/geosparql-swg> ;
+        ] ;
+    rim:inRegister <https://www.opengis.net/def/catalog/ggld> ;
+.

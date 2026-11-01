@@ -1,0 +1,63 @@
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov1: <http://www.w3.org/ns/prov-o#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+geo:plyLiteral
+    a rdfs:Datatype ;
+    dcterms:description "A PLY serialization of a Geometry object."@en ;
+    dcterms:title "PLY Literal"@en ;
+    dcterms:conformsTo "https://paulbourke.net/dataformats/ply/"^^xsd:anyURI ;
+    skos:example """ply
+format ascii 1.0
+comment https://github.com/mikedh/trimesh
+element vertex 8
+property float x
+property float y
+property float z
+element face 12
+property list uchar int vertex_indices
+end_header
+-83.59999847 34.09999847 0.00000000
+-83.19999695 34.09999847 0.00000000
+-83.19999695 34.50000000 0.00000000
+-83.59999847 34.50000000 0.00000000
+-83.59999847 34.09999847 0.10000000
+-83.19999695 34.09999847 0.10000000
+-83.19999695 34.50000000 0.10000000
+-83.59999847 34.50000000 0.10000000
+3 1 0 3
+3 3 2 1
+3 7 4 5
+3 5 6 7
+3 5 4 1
+3 1 4 0
+3 6 5 2
+3 2 5 1
+3 4 7 0
+3 0 7 3
+3 7 6 3
+3 3 6 2
+"""^^geo:plyLiteral ;
+    geo:is3dCapable true ;
+    geo:is2dCapable false ;
+    geo:isCrsAware false ;
+    geo:isCsAware true ;
+    prov1:qualifiedAttribution
+        [
+            prov1:agent <https://defs.opengis.net/org/geosparql-swg> ;
+            prov1:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
+        ] ;
+    rim:hasAction
+        [
+            dcterms:isReplacedBy <https://www.opengis.net/def/vstatus/valid> ;
+            prov1:atTime "2026-10-29"^^xsd:date ;
+            rim:affectedProperty rim:validityStatus ;
+            rim:proposer <https://defs.opengis.net/org/geosparql-swg> ;
+        ] ;
+    rim:inRegister <https://www.opengis.net/def/catalog/ggld> ;
+.

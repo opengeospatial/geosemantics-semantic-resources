@@ -8,9 +8,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:dggsLiteral
     a rdfs:Datatype ;
-    dcterms:description "A textual serialization of a Discrete Global Grid System (DGGS) Geometry object." ;
-    dcterms:title "DGGS Literal" ;
+    dcterms:description "A textual serialization of a Discrete Global Grid System (DGGS) Geometry object."@en ;
+    dcterms:title "DGGS Literal"@en ;
+    dcterms:conformsTo "https://docs.ogc.org/is/21-038r1/21-038r1.html"^^xsd:anyURI ;
+    skos:example "<https://h3geo.org/res/7> CELLLIST( 87f16608bffffff )"^^geo:dggsLiteral ;
     geo:is3dCapable true ;
+    geo:is2dCapable true ;
     geo:isCrsAware true ;
     prov1:qualifiedAttribution
         [

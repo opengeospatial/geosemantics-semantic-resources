@@ -4,14 +4,18 @@ PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX prov1: <http://www.w3.org/ns/prov-o#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:kmlLiteral
     a rdfs:Datatype ;
-    dcterms:description "A KML serialization of a Geometry object." ;
-    dcterms:title "KML Literal" ;
+    dcterms:description "A KML serialization of a Geometry object."@en ;
+    dcterms:title "KML Literal"@en ;
+    dcterms:conformsTo "https://docs.ogc.org/is/12-007r2/12-007r2.html"^^xsd:anyURI ;
+    skos:example "<Point><coordinates>-88.38,31.95</coordinates></Point>"^^geo:kmlLiteral ;
     geo:is3dCapable true ;
+    geo:is2dCapable true ;
     geo:isCrsAware false ;
     geo:supportsGeometryType
         sf:GeometryCollection ,

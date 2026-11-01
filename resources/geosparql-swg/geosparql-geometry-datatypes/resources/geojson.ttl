@@ -3,14 +3,18 @@ PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX prov1: <http://www.w3.org/ns/prov-o#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:geoJSONLiteral
     a rdfs:Datatype ;
-    dcterms:description "A GeoJSON serialization of a Geometry object." ;
-    dcterms:title "GeoJSON Literal" ;
+    dcterms:description "A GeoJSON serialization of a Geometry object."@en ;
+    dcterms:title "GeoJSON Literal"@en ;
+    dcterms:conformsTo "https://www.rfc-editor.org/info/rfc7946/"^^xsd:anyURI ;
+    skos:example "{\"type\":\"Point\",\"coordinates\":[-88.38, 31.95]}"^^geo:geoJSONLiteral ;
     geo:is3dCapable false ;
+    geo:is2dCapable true ;
     geo:isCrsAware false ;
     geo:supportsGeometryType
         sf:GeometryCollection ,
