@@ -6,7 +6,7 @@ PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-geo:wktLiteral
+geo:geoJSONLiteral
     a rdfs:Datatype ;
     dcterms:description "A GeoJSON serialization of a Geometry object." ;
     dcterms:title "GeoJSON Literal" ;
