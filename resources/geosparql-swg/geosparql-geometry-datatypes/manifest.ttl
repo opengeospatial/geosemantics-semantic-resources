@@ -1,0 +1,28 @@
+# This file contains a machine-readable listing of the contents of this repository's vocabulary resources
+# according to the Prez Manifest (https://prez.dev) model.
+
+PREFIX mrr: <https://prez.dev/ManifestResourceRoles/>
+PREFIX prez: <https://prez.dev/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX schema: <https://schema.org/>
+
+[]    a prez:Manifest ;
+    prof:hasResource 
+        [
+            prof:hasArtifact "resources/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+        ] ,
+        [
+            prof:hasArtifact "../geosparql-1.1/agents.ttl" ;
+            prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
+            schema:name "Agent information" ;
+        ] ,
+        [
+            prof:hasArtifact "catalogue.ttl" ;
+            prof:hasRole mrr:CatalogueData ;
+        ] ,
+        [
+            prof:hasArtifact "labels.ttl" ;
+            prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
+        ] ;
+.

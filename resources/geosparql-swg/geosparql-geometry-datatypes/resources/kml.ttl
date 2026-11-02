@@ -1,0 +1,42 @@
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov1: <http://www.w3.org/ns/prov-o#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+geo:kmlLiteral
+    a rdfs:Datatype ;
+    dcterms:description "A KML serialization of a Geometry object."@en ;
+    dcterms:title "KML Literal"@en ;
+    dcterms:conformsTo "https://docs.ogc.org/is/12-007r2/12-007r2.html"^^xsd:anyURI ;
+    skos:example "<Point><coordinates>-88.38,31.95</coordinates></Point>"^^geo:kmlLiteral ;
+    geo:is3dCapable true ;
+    geo:is2dCapable true ;
+    geo:isCrsAware false ;
+    geo:supportsGeometryType
+        sf:GeometryCollection ,
+        sf:LineString ,
+        sf:LinearRing ,
+        sf:MultiLineString ,
+        sf:MultiPoint ,
+        sf:MultiPolygon ,
+        sf:Point ,
+        sf:Polygon ;
+    prov1:qualifiedAttribution
+        [
+            prov1:agent <https://defs.opengis.net/org/geosparql-swg> ;
+            prov1:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
+        ] ;
+    rim:hasAction
+        [
+            dcterms:isReplacedBy <https://www.opengis.net/def/vstatus/valid> ;
+            prov1:atTime "2026-10-29"^^xsd:date ;
+            rim:affectedProperty rim:validityStatus ;
+            rim:proposer <https://defs.opengis.net/org/geosparql-swg> ;
+        ] ;
+    rim:inRegister <https://www.opengis.net/def/catalog/ggld> ;
+.

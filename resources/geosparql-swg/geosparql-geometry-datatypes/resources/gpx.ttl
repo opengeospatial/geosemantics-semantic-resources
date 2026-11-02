@@ -1,0 +1,66 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov1: <http://www.w3.org/ns/prov-o#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+geo:gmlLiteral
+    a rdfs:Datatype ;
+    dcterms:description "The datatype of GPX literal values"@en ;
+    dcterms:title "GPX literal"@en ;
+    dcterms:conformsTo "https://www.topografix.com/GPX/1/1/"^^xsd:anyURI ;
+    skos:example """<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+<trk>
+<trkseg>
+<trkpt lat="34.1" lon="-83.6">
+</trkpt>
+<trkpt lat="34.1" lon="-83.2">
+</trkpt>
+<trkpt lat="34.5" lon="-83.2">
+</trkpt>
+<trkpt lat="34.5" lon="-83.6">
+</trkpt>
+<trkpt lat="34.1" lon="-83.6">
+</trkpt>
+</trkseg>
+</trk>
+</gpx>"""^^geo:gpxLiteral ;
+    geo:is3dCapable true ;
+    geo:is2dCapable true ;
+    geo:isCrsAware true ;
+    geo:supportsGeometryType
+        sf:Curve ,
+        sf:Envelope ,
+        sf:Geometry ,
+        sf:GeometryCollection ,
+        sf:Line ,
+        sf:LineString ,
+        sf:LinearRing ,
+        sf:MultiCurve ,
+        sf:MultiLineString ,
+        sf:MultiPoint ,
+        sf:MultiPolygon ,
+        sf:MultiSurface ,
+        sf:Point ,
+        sf:Polygon ,
+        sf:PolyhedralSurface ,
+        sf:Surface ,
+        sf:TIN ,
+        sf:Triangle ;
+    prov1:qualifiedAttribution
+        [
+            prov1:agent <https://defs.opengis.net/org/geosparql-swg> ;
+            prov1:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
+        ] ;
+    rim:hasAction
+        [
+            dcterms:isReplacedBy <https://www.opengis.net/def/vstatus/valid> ;
+            prov1:atTime "2026-10-29"^^xsd:date ;
+            rim:affectedProperty rim:validityStatus ;
+            rim:proposer <https://defs.opengis.net/org/geosparql-swg> ;
+        ] ;
+    rim:inRegister <https://www.opengis.net/def/catalog/ggld> ;
+.
