@@ -11,7 +11,7 @@ geo:jsonFGLiteral
     a rdfs:Datatype ;
     dcterms:description "A JSONFG serialization of a Geometry object."@en ;
     dcterms:title "JSONFG Literal"@en ;
-    dcterms:conformsTo "https://docs.ogc.org/is/21-045r1/21-045r1.html"^^xsd:anyURI ;
+    dcterms:conformsTo <http://www.opengis.net/doc/IS/json-fg-1/1.0> ;
     skos:example "{\"type\": \"Polygon\", \"coordinates\": [[[-83.6, 34.1], [-83.2, 34.1], [-83.2, 34.5], [-83.6, 34.5], [-83.6, 34.1]]], \"coordRefSys\": \"http://www.opengis.net/def/crs/OGC/1.3/CRS84\", \"conformsTo\": [\"http://www.opengis.net/spec/json-fg-1/1.0/conf/core\", \"http://www.opengis.net/spec/json-fg-1/1.0/conf/types-schemas\"]}"^^geo:jsonFGLiteral ;
     geo:is3dCapable false ;
     geo:is2dCapable true ;
