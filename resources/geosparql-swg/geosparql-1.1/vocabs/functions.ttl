@@ -3317,6 +3317,6 @@ cs:
     schema:creator <https://defs.opengis.net/org/geosparql-swg> ;
     schema:dateCreated "2021-06-16"^^xsd:date ;
     schema:dateModified "2026-08-06"^^xsd:date ;
-    schema:license <http://purl.org/NET/rdflicense/:APACHE2.0> ;
+    schema:license <http://purl.org/NET/rdflicense/APACHE2.0> ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
 .

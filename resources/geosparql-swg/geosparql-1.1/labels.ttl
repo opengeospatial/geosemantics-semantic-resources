@@ -585,6 +585,6 @@ schema:url
 .
 
 
-<https://schema.org/coyrightNotice>
+<https://schema.org/copyrightNotice>
     schema:name "coyright notice" ;
 .
