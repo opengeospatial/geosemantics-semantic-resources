@@ -1,6 +1,6 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX prov1: <http://www.w3.org/ns/prov-o#>
+PREFIX prov: <http://www.w3.org/ns/prov-o#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -36,15 +36,15 @@ geo:wktLiteral
         sf:Surface ,
         sf:TIN ,
         sf:Triangle ;
-    prov1:qualifiedAttribution
+    prov:qualifiedAttribution
         [
-            prov1:agent <https://defs.opengis.net/org/geosparql-swg> ;
-            prov1:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
+            prov:agent <https://defs.opengis.net/org/geosparql-swg> ;
+            prov:hadRole <https://def.isotc211.org/codeset/RoleCode/custodian> ;
         ] ;
     rim:hasAction
         [
             dcterms:isReplacedBy <https://www.opengis.net/def/vstatus/valid> ;
-            prov1:atTime "2026-10-29"^^xsd:date ;
+            prov:atTime "2026-10-29"^^xsd:date ;
             rim:affectedProperty rim:validityStatus ;
             rim:proposer <https://defs.opengis.net/org/geosparql-swg> ;
         ] ;
