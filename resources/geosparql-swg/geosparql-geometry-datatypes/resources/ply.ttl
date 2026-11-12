@@ -11,7 +11,7 @@ geo:plyLiteral
     a rdfs:Datatype ;
     dcterms:description "A PLY serialization of a Geometry object."@en ;
     dcterms:title "PLY Literal"@en ;
-    dcterms:conformsTo "https://paulbourke.net/dataformats/ply/"^^xsd:anyURI ;
+    dcterms:conformsTo <https://paulbourke.net/dataformats/ply/> ;
     skos:example """ply
 format ascii 1.0
 comment https://github.com/mikedh/trimesh

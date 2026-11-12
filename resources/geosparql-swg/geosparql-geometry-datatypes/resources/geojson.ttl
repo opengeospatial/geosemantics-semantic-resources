@@ -11,7 +11,7 @@ geo:geoJSONLiteral
     a rdfs:Datatype ;
     dcterms:description "A GeoJSON serialization of a Geometry object."@en ;
     dcterms:title "GeoJSON Literal"@en ;
-    dcterms:conformsTo "https://www.rfc-editor.org/info/rfc7946/"^^xsd:anyURI ;
+    dcterms:conformsTo <https://www.rfc-editor.org/info/rfc7946/> ;
     skos:example "{\"type\":\"Point\",\"coordinates\":[-88.38, 31.95]}"^^geo:geoJSONLiteral ;
     geo:is3dCapable false ;
     geo:is2dCapable true ;

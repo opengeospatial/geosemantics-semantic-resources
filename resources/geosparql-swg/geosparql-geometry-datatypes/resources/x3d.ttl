@@ -10,7 +10,7 @@ geo:x3dLiteral
     a rdfs:Datatype ;
     dcterms:description "A X3D serialization of a Geometry object."@en ;
     dcterms:title "X3D Literal"@en ;
-    dcterms:conformsTo "https://www.web3d.org/x3d4"^^xsd:anyURI ;
+    dcterms:conformsTo <https://www.web3d.org/x3d4> ;
     geo:is3dCapable true ;
     geo:is2dCapable false ;
     geo:isCrsAware false ;

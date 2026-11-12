@@ -6,11 +6,11 @@ PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-geo:gmlLiteral
+geo:gpxLiteral
     a rdfs:Datatype ;
     dcterms:description "The datatype of GPX literal values"@en ;
     dcterms:title "GPX literal"@en ;
-    dcterms:conformsTo "https://www.topografix.com/GPX/1/1/"^^xsd:anyURI ;
+    dcterms:conformsTo <https://www.topografix.com/GPX/1/1/> ;
     skos:example """<?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
 <trk>
