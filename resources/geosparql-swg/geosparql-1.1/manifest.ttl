@@ -35,12 +35,12 @@ PREFIX schema: <https://schema.org/>
             schema:name "GeoSPARQL SWG Validators"
         ] ,
         [
-            prof:hasArtifact "../labels.ttl" ;
+            prof:hasArtifact "labels.ttl" ;
             prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
             schema:name "Labels" ;
         ] ,
         [
-            prof:hasArtifact "../agents.ttl" ;
+            prof:hasArtifact "agents.ttl" ;
             prof:hasRole mrr:IncompleteCatalogueAndResourceLabels ;
             schema:name "Agent information" ;
         ] ,

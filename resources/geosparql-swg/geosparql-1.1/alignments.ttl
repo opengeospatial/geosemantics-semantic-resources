@@ -11,7 +11,7 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX osmm: <https://www.openstreetmap.org/meta/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX pos: <http://www.w3.org/2003/01/geo/>
-PREFIX prov1: <https://www.w3.org/TR/prov-o/>
+PREFIX prov: <https://www.w3.org/TR/prov-o/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdo: <https://schema.org/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
@@ -528,7 +528,7 @@ cidoc:SP7_DelcarativePlace
 .
 
 geo:SpatialObjectCollection
-    rdfs:subClassOf prov1:Collection ;
+    rdfs:subClassOf prov:Collection ;
 .
 
 <http://www.opengis.net/ont/geosparql-alignments>
@@ -752,7 +752,7 @@ sf:LineString
 geo:SpatialObject
     rdfs:subClassOf
         obo:BFO_0000004 ,
-        prov1:Entity ;
+        prov:Entity ;
     owl:equivalentClass pos:SpatialThing ;
 .
 
@@ -790,6 +790,6 @@ geo:Feature
     rdfs:subClassOf
         dcterms:Location ,
         gn:Class ,
-        prov1:Location ;
+        prov:Location ;
     owl:equivalentClass as:Place ;
 .
