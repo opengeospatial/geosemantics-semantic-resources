@@ -6,6 +6,14 @@ PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+geo:asGPX
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:subPropertyOf :hasSerialization;
+	rdfs:domain :Geometry ;
+	rdfs:range :gpxLiteral ;
+	schema:description """The GPX serialization of a Geometry"""@en ;
+	schema:name "as GPX"@en .
+
 geo:gpxLiteral
     a rdfs:Datatype ;
     dcterms:description "The datatype of GPX literal values"@en ;

@@ -7,6 +7,18 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+geo:asGeoJSON
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:subPropertyOf :hasSerialization;
+	rdfs:domain :Geometry ;
+	rdfs:range :geoJSONLiteral ;
+	rdfs:seeAlso <https://tools.ietf.org/html/rfc7946> ;
+	rdfs:isDefinedBy 
+		: , 
+		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-geojson-literal> ;
+	schema:description """The GeoJSON serialization of a Geometry"""@en ;
+	schema:name "as GeoJSON"@en .
+
 geo:geoJSONLiteral
     a rdfs:Datatype ;
     dcterms:description "A GeoJSON serialization of a Geometry object."@en ;

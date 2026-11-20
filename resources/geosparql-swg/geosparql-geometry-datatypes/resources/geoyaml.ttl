@@ -7,6 +7,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+geo:asGeoYAML
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:subPropertyOf :hasSerialization;
+	rdfs:domain :Geometry ;
+	rdfs:range :geoYAMLLiteral ;
+	schema:description """The GeoYAML serialization of a Geometry"""@en ;
+	schema:name "as GeoYAML"@en .
+
 geo:geoYAMLLiteral
     a rdfs:Datatype ;
     dcterms:description "A GeoYAML serialization of a Geometry object."@en ;

@@ -6,6 +6,17 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+geo:asDGGS
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:subPropertyOf :hasSerialization;
+	rdfs:domain :Geometry ;
+	rdfs:range :dggsLiteral ;
+	rdfs:isDefinedBy 
+		: , 
+		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-dggs-literal> ;
+	schema:description """The Discrete Global Grid System (DGGS) serialization of a Geometry"""@en ;	
+	schema:name "as DGGS"@en .	
+
 geo:dggsLiteral
     a rdfs:Datatype ;
     dcterms:description "A textual serialization of a Discrete Global Grid System (DGGS) Geometry object."@en ;
