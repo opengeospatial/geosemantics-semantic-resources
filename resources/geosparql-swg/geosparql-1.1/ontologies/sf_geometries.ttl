@@ -10,11 +10,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <http://www.opengis.net/ont/sf>
     a owl:Ontology ;
     skos:definition "An RDF/OWL vocabulary for defining SimpleFeature geometry types" ;
-    schema:license <http://purl.org/NET/rdflicense/:APACHE2.0> ;
+    schema:license <http://purl.org/NET/rdflicense/APACHE2.0> ;
     schema:dateCreated "2012-05-15"^^xsd:date ;
     schema:dateModified "2026-02-27"^^xsd:date ;
     schema:dateIssued "2025-11-19"^^xsd:date ;
-    schema:coyrightNotice "(c) 2022 Open Geospatial Consortium" ;
+    schema:copyrightNotice "(c) 2022 Open Geospatial Consortium" ;
     skos:prefLabel "Simple Features Vocabulary"@en ;
     owl:versionIRI <http://www.opengis.net/ont/sf/1.1.1> ;
     owl:versionInfo """1.1.1 - 2026-02 - minor metadata changes to ensure Rainbow display

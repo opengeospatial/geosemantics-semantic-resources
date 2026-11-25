@@ -1,0 +1,33 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://www.opengis.net/def/catalog/ggld>
+    a dcat:Catalog ;
+    rdfs:member
+        geo:dggsLiteral ,
+        geo:geoCodeLiteral ,
+        geo:geoJSONLiteral ,
+        geo:geoYAMLLiteral ,
+        geo:gltfLiteral ,
+        geo:gmlLiteral ,
+        geo:gpxLiteral ,
+        geo:jsonFGLiteral ,
+        geo:kmlLiteral ,
+        geo:objLiteral ,
+        geo:plyLiteral ,
+        geo:wkbLiteral ,
+        geo:wktLiteral ,
+        geo:x3dLiteral ;
+    skos:historyNote "This catalogue was was created in 2026 by the Geosemantics DWG"@en ;
+    schema:codeRepository "https://github.com/opengeospatial/geosemantics-semantic-resources"^^xsd:anyURI ;
+    schema:creator <https://defs.opengis.net/org/geosemantics-dwg> ;
+    schema:dateCreated "2025"^^xsd:gYear ;
+    schema:dateModified "2025-09-12"^^xsd:date ;
+    schema:description "A register of RDF literal datatypes that can be used to represent the serialization of a GeoSPARQL geo:Geometry object." ;
+    schema:name "GeoSPARQL Geometry Datatypes Register" ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+.
