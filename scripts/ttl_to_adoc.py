@@ -16,7 +16,7 @@ EXCLUDED_QNAME_PREFIXES = ("prov", "rim")
 TTL_DIR = Path("resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
 OUTPUT_ADOC = Path("resources/geosparql-swg/geosparql-geometry-datatypes/doc/sections/datatypes.adoc")
 
-ef get_qname_or_uri(g: Graph, term) -> str:
+def get_qname_or_uri(g: Graph, term) -> str:
     try:
         qname = g.namespace_manager.normalizeUri(term)
         if qname and not qname.startswith("<"):
