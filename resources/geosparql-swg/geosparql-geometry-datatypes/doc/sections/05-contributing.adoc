@@ -1,0 +1,21 @@
+== Contributing to the Registry
+
+The GeoSPARQL Geometry Datatype Registry is maintained openly on GitHub by the OGC GeoSPARQL Standards Working Group in the link:https://github.com[OGC Geosemantics Semantic Resources repository].
+
+=== Proposing a New Geometry Literal Datatype
+
+Community members, data publishers, and software implementers may propose new geometry literal datatypes or updates to existing definitions by opening an issue in the repository:
+
+* **Issue Tracker**: link:https://github.com/issues[https://github.com/issues]
+
+When submitting an issue to propose a new literal type, contributors should provide:
+
+1. **Format Name and Specification**: The name of the geometry serialization format and a link to its authoritative specification or standard.
+2. **Proposed Datatype IRI and Label**: A suggested canonical IRI (e.g., within the `http://opengis.net` namespace) and a concise human-readable `rdfs:label`.
+3. **Scope Definition**: A clear description (`skos:definition` or `rdfs:comment`) explaining the encoding, coordinate reference system handling, and intended use cases.
+4. **Accompanying Serialization Property**: Details of the corresponding RDF property (such as `geo:has<Format>`) to associate `geo:Geometry` instances with literals of the proposed datatype.
+5. **Example Literal**: A brief, valid RDF Turtle example demonstrating the datatype and serialization property in use.
+
+=== Review and Publication Process
+
+Submitted issues are reviewed by the OGC GeoSPARQL SWG for technical clarity, alignment with existing GeoSPARQL conventions, and absence of duplication. Once approved, a corresponding Turtle (`.ttl`) definition file is added to the `resources/geosparql-swg/geosparql-geometry-datatypes/resources` directory, and this Community Standard document is automatically regenerated and published via Continuous Integration.

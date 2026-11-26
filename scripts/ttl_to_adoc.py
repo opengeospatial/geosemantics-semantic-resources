@@ -3,8 +3,8 @@ from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
 
 DCT = Namespace("http://purl.org/dc/terms/")
 
-TTL_DIR = Path("resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
-OUTPUT_ADOC = Path("resources/geosparql-swg/geosparql-geometry-datatypes/doc/sections/datatypes.adoc")
+TTL_DIR = Path("../resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
+OUTPUT_ADOC = Path("../build/datatypes.adoc")
 
 def format_term(g: Graph, term) -> str:
     if term is None:
@@ -17,7 +17,8 @@ def format_term(g: Graph, term) -> str:
     text = str(term)
     if text.startswith(("http://", "https://")):
         label = qname if qname and not qname.startswith("<") else text
-        return f"`{label}` ({text})"
+        safe_label = label.replace("]", "\\]").replace("|", "\\|")
+        return f"link:{text}[`{safe_label}`]"
     return text.replace("|", "\\|")
 
 

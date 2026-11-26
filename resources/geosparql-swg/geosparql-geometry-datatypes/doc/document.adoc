@@ -1,4 +1,4 @@
-= GeoSPARQL Geometry Datatypes
+= GeoSPARQL Geometry Datatype Registry
 :docnumber: 26-001
 :doctype: community-standard
 :status: work-item-draft
@@ -8,9 +8,9 @@
 :language: en
 :published-date: 2026-11-26
 :copyright-year: 2026
-:fullname: Your Name
+:fullname: GeoSPARQL Standards Working Group
 :role: editor
-:affiliation: Your Organization
+:affiliation: Open Geospatial Consortium (OGC)
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,pdf
 :local-cache-only:
@@ -21,8 +21,9 @@ include::sections/01-scope.adoc[]
 include::sections/02-conformance.adoc[]
 include::sections/03-references.adoc[]
 include::sections/04-terms.adoc[]
+include::sections/05-contributing.adoc[]
 
 == Geometry Datatypes
 
 // Generated automatically by scripts/ttl_to_adoc.py
-include::sections/datatypes.adoc[]
+include::build/datatypes.adoc[]

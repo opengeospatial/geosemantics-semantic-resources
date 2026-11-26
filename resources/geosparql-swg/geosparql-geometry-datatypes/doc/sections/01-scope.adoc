@@ -1,10 +1,11 @@
-
 == Scope
 
-// Insert scope content.
-Scope content.
+This OGC Community Standard specifies Internationalized Resource Identifiers (IRIs), formal definitions, and accompanying RDF serialization properties for geometry literal datatypes (`rdfs:Datatype`) used in conjunction with OGC GeoSPARQL.
 
-[NOTE]
-====
-Give the subject of the document and aspects of the scope covered by the document.
-====
+The scope of this document includes:
+
+* Canonical IRIs and semantic metadata for geometry literal datatypes registered by the OGC GeoSPARQL Standards Working Group;
+* Accompanying RDF datatype properties linking `geo:Geometry` instances to typed geometry literals;
+* Governance and community contribution procedures for proposing new geometry literal datatypes to the registry.
+
+This document does not define new spatial topological functions, query operators, or geometry-format-specific syntax rules beyond those specified by the underlying encoding standards referenced by each datatype.
