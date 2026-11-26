@@ -94,8 +94,7 @@ def render_rdf_description_block(g: Graph, subject) -> list[str]:
                 "[NOTE]",
                 "====",
                 desc_text,
-                "====
-",
+                "====",
             ]
     return []
 
@@ -185,21 +184,20 @@ def render_attribute_table(
         values = grouped[p]
 
         if p == SKOS.example:
-            blocks = "
+            blocks = """
 
-".join(format_code_block(val) for val in values)
+""".join(format_code_block(val) for val in values)
             rows.append(f"| {pred_cell} a|
 {blocks}")
         elif len(values) == 1:
             rows.append(f"| {pred_cell} | {format_term(g, values[0])}")
         else:
-            bullets = "
-".join(f"* {format_term(g, val)}" for val in values)
+            bullets = """
+""".join(f"* {format_term(g, val)}" for val in values)
             rows.append(f"| {pred_cell} a|
 {bullets}")
 
-    rows.append("|===
-")
+    rows.append("|===")
     return rows
 
 
@@ -237,12 +235,9 @@ def generate_adoc() -> None:
             properties_set.update(g.subjects(RDF.type, pt))
         properties = sorted(properties_set, key=lambda s: str(s))
 
-        lines.append(f"=== {format_name} Datatype Specification
-")
+        lines.append(f"=== {format_name} Datatype Specification")
         lines.append(
-            f"{build_section_intro(g, format_name, ttl_path.name, datatypes, properties)}
-"
-        )
+            f"{build_section_intro(g, format_name, ttl_path.name, datatypes, properties)}")
 
         for dt in datatypes:
             dt_label = get_label(g, dt)
@@ -250,18 +245,15 @@ def generate_adoc() -> None:
             table_id = make_anchor_id("table-dt", format_name, dt)
             table_title = f"Attributes of the {dt_label} (`{dt_qname}`) datatype"
 
-            lines.append(f"==== {dt_label}
-")
-            lines.append(f"{build_datatype_intro(g, dt, format_name, table_id)}
-")
+            lines.append(f"==== {dt_label}")
+            lines.append(f"{build_datatype_intro(g, dt, format_name, table_id)}")
             lines.extend(render_rdf_description_block(g, dt))
             lines.extend(
                 render_attribute_table(g, dt, "Attribute", table_id, table_title)
             )
 
         if properties:
-            lines.append(f"==== Accompanying Properties ({format_name})
-")
+            lines.append(f"==== Accompanying Properties ({format_name})")
             for prop in properties:
                 prop_label = get_label(g, prop)
                 prop_qname = get_qname_or_uri(g, prop)
@@ -270,10 +262,8 @@ def generate_adoc() -> None:
                     f"Property attributes of {prop_label} (`{prop_qname}`)"
                 )
 
-                lines.append(f"===== {prop_label}
-")
-                lines.append(f"{build_property_intro(g, prop, table_id)}
-")
+                lines.append(f"===== {prop_label}")
+                lines.append(f"{build_property_intro(g, prop, table_id)}")
                 lines.extend(render_rdf_description_block(g, prop))
                 lines.extend(
                     render_attribute_table(
@@ -281,8 +271,8 @@ def generate_adoc() -> None:
                     )
                 )
 
-    OUTPUT_ADOC.write_text("
-".join(lines), encoding="utf-8")
+    OUTPUT_ADOC.write_text("""
+""".join(lines), encoding="utf-8")
     print(f"Generated {OUTPUT_ADOC} from {len(ttl_files)} local TTL files.")
 
 
