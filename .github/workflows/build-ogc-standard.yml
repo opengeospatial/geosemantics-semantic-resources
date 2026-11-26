@@ -53,7 +53,7 @@ jobs:
       - name: Compile OGC Community Standard
         env:
           TEBAKO_METANORMA_VERSION: "1.17.0"
-        run: metanorma compile -t ogc -x xml,html,pdf document.adoc --agree-to-terms
+        run: metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.adoc --agree-to-terms
 
       - name: Assemble GitHub Pages site structure
         run: |
