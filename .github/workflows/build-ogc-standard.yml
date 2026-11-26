@@ -1,0 +1,40 @@
+name: Build OGC Community Standard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install rdflib
+        run: pip install rdflib
+
+      - name: Generate AsciiDoc from GeoSPARQL TTL files
+        run: python scripts/ttl_to_adoc.py
+
+      - name: Set up Metanorma
+        uses: actions-mn/setup@v3
+
+      - name: Compile OGC Community Standard
+        run: metanorma compile -t ogc -x xml,html,pdf document.adoc --agree-to-terms
+
+      - name: Upload compiled OGC documents
+        uses: actions/upload-artifact@v4
+        with:
+          name: ogc-geosparql-datatypes-standard
+          path: |
+            document.html
+            document.pdf
+            document.xml
