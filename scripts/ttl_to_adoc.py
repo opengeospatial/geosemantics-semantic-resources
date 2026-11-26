@@ -45,10 +45,10 @@ def format_term(g: Graph, term) -> str:
 
 def format_code_block(term) -> str:
     raw = str(term).strip()
-    return f"[source,turtle]
+    return f"""[source,turtle]
 ----
 {raw}
-----"
+----"""
 
 
 def is_excluded_predicate(g: Graph, pred) -> bool:
