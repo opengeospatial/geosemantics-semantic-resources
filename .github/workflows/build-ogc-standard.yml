@@ -89,6 +89,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site
+          publish_dir: _site
           keep_files: true
           commit_message: "Deploy GeoSPARQL Geometry Datatypes Community Standard"
