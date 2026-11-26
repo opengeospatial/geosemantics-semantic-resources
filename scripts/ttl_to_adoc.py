@@ -1,7 +1,14 @@
+from collections import defaultdict
 from pathlib import Path
 from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
 
 DCT = Namespace("http://purl.org/dc/terms/")
+PROV_NS = "http://www.w3.org/ns/prov#"
+RIM_NAMESPACES = (
+    "http://www.opengis.net/ont/rim#",
+    "http://www.opengis.net/def/metamodel/rim/",
+    "urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0",
+)
 
 TTL_DIR = Path("resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
 OUTPUT_ADOC = Path("resources/geosparql-swg/geosparql-geometry-datatypes/doc/sections/datatypes.adoc")
@@ -20,6 +27,21 @@ def format_term(g: Graph, term) -> str:
         safe_label = label.replace("]", "\\]").replace("|", "\\|")
         return f"link:{text}[`{safe_label}`]"
     return text.replace("|", "\\|")
+
+
+def is_excluded_predicate(g: Graph, pred) -> bool:
+    if pred in (RDF.type, SKOS.definition, RDFS.comment, DCT.description):
+        return True
+    pred_str = str(pred)
+    if pred_str.startswith(PROV_NS) or pred_str.startswith(RIM_NAMESPACES):
+        return True
+    try:
+        qname = g.namespace_manager.normalizeUri(pred)
+        if qname.startswith(("prov:", "rim:")):
+            return True
+    except Exception:
+        pass
+    return False
 
 
 def get_label(g: Graph, subject) -> str:
@@ -42,16 +64,31 @@ def get_description(g: Graph, subject) -> str:
 
 
 def render_attribute_table(g: Graph, subject, header_label: str) -> list[str]:
+    grouped: dict[object, list[str]] = defaultdict(list)
+
+    for p, o in sorted(g.predicate_objects(subject), key=lambda x: str(x)):
+        if is_excluded_predicate(g, p):
+            continue
+        formatted_val = format_term(g, o)
+        if formatted_val not in grouped[p]:
+            grouped[p].append(formatted_val)
+
     rows = [
         '[cols="1,3",options="header"]',
         "|===",
         f"| {header_label} | Value",
-        f"| URI | `{subject}`",
+        f"| URI | link:{subject}[`{subject}`]",
     ]
-    for p, o in sorted(g.predicate_objects(subject), key=lambda x: str(x)):
-        if p in (SKOS.definition, RDFS.comment, DCT.description):
-            continue
-        rows.append(f"| {format_term(g, p)} | {format_term(g, o)}")
+
+    for p in sorted(grouped.keys(), key=lambda x: str(x)):
+        pred_cell = format_term(g, p)
+        values = grouped[p]
+        if len(values) == 1:
+            rows.append(f"| {pred_cell} | {values[0]}")
+        else:
+            bullets = "\n".join(f"* {val}" for val in values)
+            rows.append(f"| {pred_cell} a|\n{bullets}")
+
     rows.append("|===\n")
     return rows
 
@@ -59,7 +96,7 @@ def render_attribute_table(g: Graph, subject, header_label: str) -> list[str]:
 def generate_adoc() -> None:
     ttl_files = sorted(TTL_DIR.glob("*.ttl"))
     if not ttl_files:
-        raise FileNotFoundError(f"No .ttl files found in {TTL_DIR}")
+        raise FileNotFoundError(f"No .ttl files found in {TTL_DIR.resolve()}")
 
     OUTPUT_ADOC.parent.mkdir(parents=True, exist_ok=True)
     lines: list[str] = []
@@ -109,3 +146,4 @@ def generate_adoc() -> None:
 
 if __name__ == "__main__":
     generate_adoc()
+
