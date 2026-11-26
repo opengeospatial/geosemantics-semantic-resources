@@ -1,7 +1,7 @@
 from pathlib import Path
 from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
 
-DCT = Namespace("http://purl.org")
+DCT = Namespace("http://purl.org/dc/terms/")
 
 TTL_DIR = Path("../resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
 OUTPUT_ADOC = Path("../build/datatypes.adoc")
