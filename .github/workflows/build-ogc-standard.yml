@@ -40,7 +40,7 @@ jobs:
         run: pip install rdflib
 
       - name: Check TTL files
-        run: ls geosemantics-semantic-resources/resources/geosparql-swg/geosparql-geometry-datatypes/resources
+        run: ls resources/geosparql-swg/geosparql-geometry-datatypes/resources
 
       - name: Generate AsciiDoc from checked-out TTL files
         run: python scripts/ttl_to_adoc.py
