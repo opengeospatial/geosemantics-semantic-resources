@@ -6,7 +6,7 @@ on:
     paths:
       - "resources/geosparql-swg/index.html"
       - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
-      - ".github/workflows/build-geosparql-datatypes-standard.yml"
+      - ".github/workflows/build-ogc-standard.yml"
   pull_request:
     paths:
       - "resources/geosparql-swg/index.html"
