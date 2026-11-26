@@ -20,9 +20,9 @@ concurrency:
   group: "gh-pages-geosparql-datatypes"
   cancel-in-progress: true
 
-defaults:
-  run:
-    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/doc
+#defaults:
+#  run:
+#    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/doc
 
 jobs:
   build-and-deploy:
