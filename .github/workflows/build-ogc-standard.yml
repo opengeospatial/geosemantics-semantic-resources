@@ -73,9 +73,9 @@ jobs:
         run: |
           mkdir -p _site/geosparql-geometry-datatypes
           cp resources/geosparql-swg/index.html _site/index.html
-          cp document.html _site/geosparql-geometry-datatypes/index.html
-          cp document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
-          cp document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/build/document.html _site/geosparql-geometry-datatypes/index.html
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/build/document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/build/document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
 
       - name: Upload compiled OGC build artifacts
         uses: actions/upload-artifact@v4
