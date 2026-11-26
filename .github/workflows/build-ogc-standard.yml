@@ -8,7 +8,7 @@ on:
       - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
       - ".github/workflows/build-ogc-standard.yml"
   pull_request:
-    paths:
+    paths: 
       - "resources/geosparql-swg/index.html"
       - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
   workflow_dispatch:
