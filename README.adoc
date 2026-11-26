@@ -1,6 +1,6 @@
 image::ogc.svg[350,350]
 
-== Geosemantics Semantic Resources
+== Geosemantics Semantic Resources 
 
 This repository contains https://en.wikipedia.org/wiki/Semantic_Web[Semantic Web] resources - vocabularies, ontologies, validators - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
 
