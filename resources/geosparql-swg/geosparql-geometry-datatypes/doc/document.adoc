@@ -26,4 +26,4 @@ include::sections/05-contributing.adoc[]
 == Geometry Datatypes
 
 // Generated automatically by scripts/ttl_to_adoc.py
-include::build/datatypes.adoc[]
+include::sections/datatypes.adoc[]
