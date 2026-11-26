@@ -22,7 +22,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/standard
+    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/doc
 
 jobs:
   build-and-deploy:
@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ogc-geosparql-geometry-datatypes-standard
-          path: resources/geosparql-swg/geosparql-geometry-datatypes/standard/_site/
+          path: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site/
 
       - name: Deploy to gh-pages branch
         if: github.event_name != 'pull_request'
@@ -68,6 +68,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: resources/geosparql-swg/geosparql-geometry-datatypes/standard/_site
+          publish_dir: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site
           keep_files: true
           commit_message: "Deploy GeoSPARQL Geometry Datatypes Community Standard"
