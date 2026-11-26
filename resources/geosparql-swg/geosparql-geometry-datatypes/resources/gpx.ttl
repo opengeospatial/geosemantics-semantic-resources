@@ -11,9 +11,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:asGPX
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization;
-	rdfs:domain :Geometry ;
-	rdfs:range :gpxLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:gpxLiteral ;
 	schema:description """The GPX serialization of a Geometry"""@en ;
 	schema:name "as GPX"@en .
 

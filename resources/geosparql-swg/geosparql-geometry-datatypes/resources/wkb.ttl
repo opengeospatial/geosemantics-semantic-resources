@@ -11,9 +11,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:asWKB
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization ;
-	rdfs:domain :Geometry ;
-	rdfs:range :wkbLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization ;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:wkbLiteral ;
 	schema:description """The WKB serialization of a Geometry"""@en ;
 	schema:name "as WKB"@en .
 

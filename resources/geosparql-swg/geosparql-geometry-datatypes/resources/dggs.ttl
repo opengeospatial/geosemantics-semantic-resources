@@ -11,11 +11,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:asDGGS
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization;
-	rdfs:domain :Geometry ;
-	rdfs:range :dggsLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:dggsLiteral ;
 	rdfs:isDefinedBy 
-		: , 
 		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-dggs-literal> ;
 	schema:description """The Discrete Global Grid System (DGGS) serialization of a Geometry"""@en ;	
 	schema:name "as DGGS"@en .	

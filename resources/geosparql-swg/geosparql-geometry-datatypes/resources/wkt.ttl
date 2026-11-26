@@ -11,11 +11,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:asWKT
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization ;
-	rdfs:domain :Geometry ;
-	rdfs:range :wktLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization ;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:wktLiteral ;
 	rdfs:isDefinedBy 
-		: , 
 		<http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-wkt-literal> , 
 		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-wkt-literal> ;
 	schema:description """The WKT serialization of a Geometry"""@en ;

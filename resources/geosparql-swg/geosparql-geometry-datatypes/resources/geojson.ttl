@@ -11,12 +11,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 geo:asGeoJSON
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization;
-	rdfs:domain :Geometry ;
-	rdfs:range :geoJSONLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:geoJSONLiteral ;
 	rdfs:seeAlso <https://tools.ietf.org/html/rfc7946> ;
 	rdfs:isDefinedBy 
-		: , 
 		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-geojson-literal> ;
 	schema:description """The GeoJSON serialization of a Geometry"""@en ;
 	schema:name "as GeoJSON"@en .
