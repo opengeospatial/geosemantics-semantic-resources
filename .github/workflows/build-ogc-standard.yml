@@ -1,7 +1,7 @@
 name: Build & Deploy GeoSPARQL Geometry Datatypes OGC Standard
 
 on:
-  push:
+  push: 
     branches: [main]
     paths:
       - "resources/geosparql-swg/index.html"
