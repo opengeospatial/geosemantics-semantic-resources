@@ -47,8 +47,12 @@ jobs:
 
       - name: Set up Metanorma
         uses: actions-mn/setup@v3
+        with:
+          version: "1.17.0"
 
       - name: Compile OGC Community Standard
+        env:
+          TEBAKO_METANORMA_VERSION: "1.17.0"
         run: metanorma compile -t ogc -x xml,html,pdf document.adoc --agree-to-terms
 
       - name: Assemble GitHub Pages site structure
