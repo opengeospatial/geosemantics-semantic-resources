@@ -4,7 +4,7 @@ from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
 DCT = Namespace("http://purl.org")
 
 BASE_DIR = Path(__file__).resolve().parent
-TTL_DIR = BASE_DIR / "resources/geosparql-swg/geosparql-geometry-datatypes/resources/"
+TTL_DIR = "../resources/geosparql-swg/geosparql-geometry-datatypes/resources/"
 OUTPUT_ADOC = BASE_DIR / "build" / "datatypes.adoc"
 
 def format_term(g: Graph, term) -> str:
