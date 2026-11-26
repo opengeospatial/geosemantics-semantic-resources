@@ -72,7 +72,7 @@ jobs:
       - name: Assemble GitHub Pages site structure
         run: |
           mkdir -p _site/geosparql-geometry-datatypes
-          cp ../../index.html _site/index.html
+          cp resources/geosparql-swg/index.html _site/index.html
           cp document.html _site/geosparql-geometry-datatypes/index.html
           cp document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
           cp document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
