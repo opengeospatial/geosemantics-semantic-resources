@@ -8,7 +8,7 @@ The resources here are produced by https://www.ogc.org/standards-working-groups/
 
 === Technical Information
 
-==== Content
+==== Content 
 
 The resources within this repository are stored in the `resources/` folder and then within SWG-specific folders inside that. A machine-readable _catalogue_ is presented per SWG that lists all that SWG's resources in one place on the OGC Rainbow.
 
