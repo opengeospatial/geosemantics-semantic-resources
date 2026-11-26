@@ -8,6 +8,7 @@ PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
 
 geo:asOBJ
 	a rdf:Property, owl:DatatypeProperty ;

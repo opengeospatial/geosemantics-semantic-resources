@@ -8,6 +8,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
 
 geo:asGeoCode
 	a rdf:Property, owl:DatatypeProperty ;

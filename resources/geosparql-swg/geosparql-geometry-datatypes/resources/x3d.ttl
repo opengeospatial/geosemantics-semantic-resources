@@ -9,6 +9,7 @@ PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+
 geo:asX3D
 	a rdf:Property, owl:DatatypeProperty ;
 	rdfs:subPropertyOf geo:hasSerialization ;
