@@ -1,6 +1,7 @@
 from collections import defaultdict
 from pathlib import Path
 from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
+import re
 
 DCT = Namespace("http://purl.org/dc/terms/")
 GEO = Namespace("http://www.opengis.net/ont/geosparql#")
