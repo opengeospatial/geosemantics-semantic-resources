@@ -5,7 +5,7 @@ image::ogc.svg[350,350]
 This repository contains https://en.wikipedia.org/wiki/Semantic_Web[Semantic Web] resources - vocabularies, ontologies, validators - managed by the https://www.ogc.org/[Open Geospatial Consortium]'s https://www.ogc.org/domain-working-groups/[Geosemantics Domain Working Group].
 
 The resources here are produced by https://www.ogc.org/standards-working-groups/[OGC Standards Working Groups] that are overseen by the Geosemantics DWG, such as the https://www.ogc.org/standards/geosparql/[GeoSPARQL SWG] and the https://www.ogc.org/standards-working-groups/[CRS SWG]. Once they those SWgs cease to exist, management of their resources is taken over by the Geosemantics DWG.
-
+ 
 === Technical Information
 
 ==== Content 
