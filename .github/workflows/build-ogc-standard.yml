@@ -1,6 +1,6 @@
 name: Build & Deploy GeoSPARQL Geometry Datatypes OGC Standard
 
-on:
+on: 
   push: 
     branches: [main]
     paths: 
