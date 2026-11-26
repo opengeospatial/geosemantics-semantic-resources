@@ -1,13 +1,31 @@
-name: Build OGC Community Standard
+name: Build & Deploy GeoSPARQL Geometry Datatypes OGC Standard
 
 on:
   push:
     branches: [main]
+    paths:
+      - "resources/geosparql-swg/index.html"
+      - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
+      - ".github/workflows/build-geosparql-datatypes-standard.yml"
   pull_request:
+    paths:
+      - "resources/geosparql-swg/index.html"
+      - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: "gh-pages-geosparql-datatypes"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/standard
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,7 +39,7 @@ jobs:
       - name: Install rdflib
         run: pip install rdflib
 
-      - name: Generate AsciiDoc from GeoSPARQL TTL files
+      - name: Generate AsciiDoc from checked-out TTL files
         run: python scripts/ttl_to_adoc.py
 
       - name: Set up Metanorma
@@ -30,11 +48,26 @@ jobs:
       - name: Compile OGC Community Standard
         run: metanorma compile -t ogc -x xml,html,pdf document.adoc --agree-to-terms
 
-      - name: Upload compiled OGC documents
+      - name: Assemble GitHub Pages site structure
+        run: |
+          mkdir -p _site/geosparql-geometry-datatypes
+          cp ../../index.html _site/index.html
+          cp document.html _site/geosparql-geometry-datatypes/index.html
+          cp document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
+          cp document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
+
+      - name: Upload compiled OGC build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ogc-geosparql-datatypes-standard
-          path: |
-            document.html
-            document.pdf
-            document.xml
+          name: ogc-geosparql-geometry-datatypes-standard
+          path: resources/geosparql-swg/geosparql-geometry-datatypes/standard/_site/
+
+      - name: Deploy to gh-pages branch
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: resources/geosparql-swg/geosparql-geometry-datatypes/standard/_site
+          keep_files: true
+          commit_message: "Deploy GeoSPARQL Geometry Datatypes Community Standard"
