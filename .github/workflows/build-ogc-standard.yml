@@ -45,15 +45,29 @@ jobs:
       - name: Generate AsciiDoc from checked-out TTL files
         run: python scripts/ttl_to_adoc.py
 
+      - uses: fontist/setup-fontist@v2
+        with:
+          cache: false
+
+      - name: Install Fira Code (all formulas/styles)
+        run: |
+          fontist update
+          fontist install --formula fira_code --accept-all-licenses
+          fontist status "Fira Code"
+
       - name: Set up Metanorma
         uses: actions-mn/setup@v3
         with:
           version: "1.17.0"
 
-      - name: Compile OGC Community Standard
+      - name: Run Metanorma 🔧
         env:
           TEBAKO_METANORMA_VERSION: "1.17.0"
-        run: metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.adoc --agree-to-terms
+        run: |
+          mkdir -p ~/snap/metanorma/current
+          cp -r ~/.fontist ~/snap/metanorma/current/.fontist
+          metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.adoc --agree-to-terms
+
 
       - name: Assemble GitHub Pages site structure
         run: |
