@@ -3,8 +3,8 @@ from rdflib import Graph, RDF, RDFS, OWL, SKOS, Namespace
 
 DCT = Namespace("http://purl.org/dc/terms/")
 
-TTL_DIR = Path("../resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
-OUTPUT_ADOC = Path("../build/datatypes.adoc")
+TTL_DIR = Path("resources/geosparql-swg/geosparql-geometry-datatypes/resources/")
+OUTPUT_ADOC = Path("build/datatypes.adoc")
 
 def format_term(g: Graph, term) -> str:
     if term is None:
