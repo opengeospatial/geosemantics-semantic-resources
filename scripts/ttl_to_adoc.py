@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent
 TTL_DIR = BASE_DIR.parent / "resources/geosparql-swg/geosparql-geometry-datatypes/resources/"
 OUTPUT_ADOC = BASE_DIR / "build" / "datatypes.adoc"
 
-
+geosemantics-semantic-resources/resources/geosparql-swg/geosparql-geometry-datatypes/resources
 def format_term(g: Graph, term) -> str:
     if term is None:
         return ""
