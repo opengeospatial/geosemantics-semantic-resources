@@ -81,7 +81,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ogc-geosparql-geometry-datatypes-standard
-          path: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site/
+          path: _site/
 
       - name: Deploy to gh-pages branch
         if: github.event_name != 'pull_request'
