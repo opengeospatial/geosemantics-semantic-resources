@@ -13,7 +13,7 @@ RIM_NAMESPACES = (
 
 # Relative paths from geosparql-1.1/source/alignments/doc/
 ALIGNMENTS_DIR = Path("resources/geosparql-swg/geosparql-1.1/source/alignments/")
-OUTPUT_ADOC = Path("resources/geosparql-swg/geosparql-1.1/source/alignments/doc/alignments.adoc")
+OUTPUT_ADOC = Path("resources/geosparql-swg/geosparql-1.1/source/alignments/doc/sections/alignments.adoc")
 
 ALIGNMENT_PREDICATES = (
     OWL.equivalentClass,

@@ -22,4 +22,4 @@ include::sections/01-intro.adoc[]
 == Vocabulary Alignments
 
 // Generated automatically by scripts/alignments_ttl_to_adoc.py
-include::build/alignments.adoc[]
+include::sections/alignments.adoc[]
