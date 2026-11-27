@@ -23,7 +23,7 @@
       line-height: 1.6;
     }
     .container {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
     }
     header {
@@ -37,6 +37,11 @@
     header p {
       color: var(--muted);
       margin: 0;
+    }
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
     .card {
       background: var(--card);
@@ -105,23 +110,39 @@
       <p>Published Community Standards and semantic resource specifications.</p>
     </header>
 
-    <section class="card">
-      <span class="badge">OGC Community Standard (Draft)</span>
-      <h2>GeoSPARQL Geometry Datatypes</h2>
-      <p>
-        Specification of RDF geometry literal datatypes and accompanying properties
-        (WKT, WKB, GeoJSON, GML, KML, DGGS, glTF, and more).
-      </p>
-      <div class="links">
-        <a class="btn btn-primary" href="./geosparql-geometry-datatypes/">Read HTML Standard</a>
-        <a class="btn" href="./geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf">Download PDF</a>
-        <a class="btn" href="./geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml">Metanorma XML</a>
-      </div>
-    </section>
+    <div class="stack">
+      <section class="card">
+        <span class="badge">OGC Community Standard (Draft)</span>
+        <h2>GeoSPARQL Geometry Datatype Registry</h2>
+        <p>
+          Specification of RDF geometry literal datatypes and accompanying properties
+          (WKT, WKB, GeoJSON, GML, KML, DGGS, glTF, and more).
+        </p>
+        <div class="links">
+          <a class="btn btn-primary" href="./geosparql-geometry-datatypes/">Read HTML Standard</a>
+          <a class="btn" href="./geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf">Download PDF</a>
+          <a class="btn" href="./geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml">Metanorma XML</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <span class="badge">OGC Community Standard (Draft)</span>
+        <h2>GeoSPARQL Vocabulary Alignments</h2>
+        <p>
+          Formal RDF, RDFS, OWL, and SKOS vocabulary alignments linking the OGC GeoSPARQL
+          ontology with external geospatial and Linked Data vocabularies.
+        </p>
+        <div class="links">
+          <a class="btn btn-primary" href="./geosparql-alignments/">Read HTML Standard</a>
+          <a class="btn" href="./geosparql-alignments/geosparql-alignments.pdf">Download PDF</a>
+          <a class="btn" href="./geosparql-alignments/geosparql-alignments.xml">Metanorma XML</a>
+        </div>
+      </section>
+    </div>
 
     <footer>
       Source repository:
-      <a href="https://github.com">opengeospatial/geosemantics-semantic-resources</a>
+      <a href="https://github.com/opengeospatial/geosemantics-semantic-resources/tree/main/resources/geosparql-swg">opengeospatial/geosemantics-semantic-resources</a>
     </footer>
   </main>
 </body>
