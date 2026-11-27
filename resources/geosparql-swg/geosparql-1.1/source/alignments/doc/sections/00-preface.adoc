@@ -1,0 +1,40 @@
+[.preface]
+== Abstract
+
+This OGC Community Standard specifies formal RDF, RDFS, OWL, and SKOS vocabulary alignments between the OGC GeoSPARQL ontology (`http://opengis.net`) and widely adopted external geospatial, Linked Data, and domain vocabularies. These machine-readable mappings enable semantic interoperability, federated querying, and cross-ontology reasoning across heterogeneous spatial knowledge graphs.
+
+[.preface]
+== Keywords
+
+The following are keywords to be used by search engines and document catalogues:
+
+ogcdoc, OGC document, GeoSPARQL, RDF, OWL, SKOS, Vocabulary Alignment, Ontology Mapping, Semantic Web, Linked Data
+
+[.preface]
+== Submitting Organizations
+
+The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
+
+* OGC GeoSPARQL Standards Working Group (SWG)
+
+[.preface]
+== Introduction
+
+The OGC GeoSPARQL standard provides a foundational ontology and SPARQL extension for representing and querying spatial features, geometries, and topological relations on the Semantic Web. In practice, spatial datasets frequently describe geographic entities using established domain vocabularies—such as W3C Basic Geo (`geo_pos`), Schema.org, CIDOC CRM, PROV-O, Dublin Core Terms, or regional spatial data infrastructures—alongside or instead of core GeoSPARQL classes and properties.
+
+This document defines the **GeoSPARQL Vocabulary Alignments**, a curated collection of declarative mapping axioms maintained by the OGC GeoSPARQL Standards Working Group (SWG). Rather than requiring data publishers to rewrite existing RDF graphs, these alignments establish formal semantic bridges between GeoSPARQL terms and external ontologies.
+
+=== Purpose and Role of Vocabulary Alignments
+
+Providing standardized ontology alignments supports three primary interoperability patterns:
+
+* **Automated Reasoning and Inference**: OWL and RDFS axioms (`owl:equivalentClass`, `owl:equivalentProperty`, `rdfs:subClassOf`, `rdfs:subPropertyOf`) allow OWL/RDFS reasoners to infer GeoSPARQL types and spatial properties from existing domain triples automatically.
+* **Cross-Vocabulary Query Translation**: Mapping relationships enable SPARQL query engines and middleware to rewrite or federate spatial queries across datasets modeled with different schemas.
+* **Semantic Discovery and Mapping Clarity**: SKOS mapping properties (`skos:exactMatch`, `skos:closeMatch`, `skos:broadMatch`, `skos:narrowMatch`, `skos:relatedMatch`) document conceptual correspondences where strict logical equivalence does not hold due to differing ontological commitments.
+
+=== Structure of This Document
+
+Each alignment module in this specification is generated directly from normative Turtle (`.ttl`) mapping files maintained in the OGC Geosemantics Semantic Resources repository. For every target vocabulary, this document provides:
+
+1. **Namespace Prefix Overview**: A summary table of all RDF namespaces and prefixes referenced across the alignment modules.
+2. **Vocabulary Alignment Sections**: Dedicated subsections detailing the source GeoSPARQL terms, alignment predicates, target vocabulary terms, and explanatory scope notes.

@@ -2,17 +2,20 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX prov: <http://www.w3.org/ns/prov-o#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rim: <https://w3id.org/ogc/rim/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX sf: <http://www.opengis.net/ont/sf#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
 
 geo:asGML
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization ;
-	rdfs:domain :Geometry ;
-	rdfs:range :gmlLiteral ;
-	rdfs:isDefinedBy 
-		: , 
+	rdfs:subPropertyOf geo:hasSerialization ;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:gmlLiteral ;
+	rdfs:isDefinedBy  
 		<http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-gml-literal> , 
 		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-gml-literal> ;
 	schema:description """The GML serialization of a Geometry"""@en ;

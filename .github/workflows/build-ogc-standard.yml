@@ -1,31 +1,32 @@
-name: Build & Deploy GeoSPARQL Geometry Datatypes OGC Standard
+name: Build & Deploy GeoSPARQL OGC Standards
 
 on:
-  push: 
+  push:
     branches: [main]
-    paths: 
+    paths:
       - "resources/geosparql-swg/index.html"
       - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
+      - "geosparql-1.1/source/alignments/**"
+      - "scripts/**"
       - ".github/workflows/build-ogc-standard.yml"
   pull_request:
-    paths: 
+    paths:
       - "resources/geosparql-swg/index.html"
       - "resources/geosparql-swg/geosparql-geometry-datatypes/**"
+      - "geosparql-1.1/source/alignments/**"
+      - "scripts/**"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: "gh-pages-geosparql-datatypes"
-  cancel-in-progress: true
-
-#defaults:
-#  run:
-#    working-directory: resources/geosparql-swg/geosparql-geometry-datatypes/doc
+  group: "gh-pages-geosparql-swg"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+
+  build-datatypes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -39,38 +40,129 @@ jobs:
       - name: Install rdflib
         run: pip install rdflib
 
-      - name: Check TTL files
-        run: ls resources/geosparql-swg/geosparql-geometry-datatypes/resources
-
       - name: Generate AsciiDoc from checked-out TTL files
         run: python scripts/ttl_to_adoc.py
 
+      - uses: fontist/setup-fontist@v2
+        with:
+          cache: false
+
+      - name: Install Fira Code (all formulas/styles)
+        run: |
+          fontist update
+          fontist install --formula fira_code --accept-all-licenses
+          fontist status "Fira Code"
+
       - name: Set up Metanorma
         uses: actions-mn/setup@v3
+        with:
+          version: "1.17.0"
 
-      - name: Compile OGC Community Standard
-        run: metanorma compile -t ogc -x xml,html,pdf document.adoc --agree-to-terms
+      - name: Run Metanorma (Geometry Datatypes)
+        env:
+          TEBAKO_METANORMA_VERSION: "1.17.0"
+        run: |
+          mkdir -p ~/snap/metanorma/current
+          cp -r ~/.fontist ~/snap/metanorma/current/.fontist
+          metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.adoc --agree-to-terms
 
-      - name: Assemble GitHub Pages site structure
+      - name: Stage Geometry Datatypes outputs
         run: |
           mkdir -p _site/geosparql-geometry-datatypes
-          cp ../../index.html _site/index.html
-          cp document.html _site/geosparql-geometry-datatypes/index.html
-          cp document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
-          cp document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.html _site/geosparql-geometry-datatypes/index.html
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.pdf _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.pdf
+          cp resources/geosparql-swg/geosparql-geometry-datatypes/doc/document.xml _site/geosparql-geometry-datatypes/geosparql-geometry-datatypes.xml
 
-      - name: Upload compiled OGC build artifacts
+      - name: Upload Geometry Datatypes artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ogc-geosparql-geometry-datatypes-standard
-          path: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site/
+          name: site-datatypes
+          path: _site/
+
+  build-alignments:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install rdflib
+        run: pip install rdflib
+
+      - name: Generate AsciiDoc from alignment TTL files
+        run: python scripts/alignments_ttl_to_adoc.py
+
+      - uses: fontist/setup-fontist@v2
+        with:
+          cache: false
+
+      - name: Install Fira Code (all formulas/styles)
+        run: |
+          fontist update
+          fontist install --formula fira_code --accept-all-licenses
+          fontist status "Fira Code"
+
+      - name: Set up Metanorma
+        uses: actions-mn/setup@v3
+        with:
+          version: "1.17.0"
+
+      - name: Run Metanorma (Alignments)
+        env:
+          TEBAKO_METANORMA_VERSION: "1.17.0"
+        run: |
+          mkdir -p ~/snap/metanorma/current
+          cp -r ~/.fontist ~/snap/metanorma/current/.fontist
+          metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.adoc --agree-to-terms
+
+      - name: Stage Alignments outputs
+        run: |
+          mkdir -p _site/geosparql-alignments
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.html _site/geosparql-alignments/index.html
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.pdf _site/geosparql-alignments/geosparql-alignments.pdf
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.xml _site/geosparql-alignments/geosparql-alignments.xml
+
+      - name: Upload Alignments artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-alignments
+          path: _site/
+
+  deploy:
+    needs: [ build-datatypes, build-alignments]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Stage landing page
+        run: |
+          mkdir -p _merged_site
+          cp resources/geosparql-swg/index.html _merged_site/index.html
+
+      - name: Download Geometry Datatypes artifact (if built)
+        if: needs.build-datatypes.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: site-datatypes
+          path: _merged_site
+
+      - name: Download Alignments artifact (if built)
+        if: needs.build-alignments.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: site-alignments
+          path: _merged_site
 
       - name: Deploy to gh-pages branch
-        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: resources/geosparql-swg/geosparql-geometry-datatypes/doc/_site
+          publish_dir: _merged_site
           keep_files: true
-          commit_message: "Deploy GeoSPARQL Geometry Datatypes Community Standard"
+          commit_message: "Deploy GeoSPARQL OGC Standards"

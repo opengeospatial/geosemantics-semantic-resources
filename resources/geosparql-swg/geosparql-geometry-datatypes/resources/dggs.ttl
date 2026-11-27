@@ -2,17 +2,20 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX prov: <http://www.w3.org/ns/prov-o#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rim: <https://w3id.org/ogc/rim/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
 
 geo:asDGGS
 	a rdf:Property, owl:DatatypeProperty ;
-	rdfs:subPropertyOf :hasSerialization;
-	rdfs:domain :Geometry ;
-	rdfs:range :dggsLiteral ;
+	rdfs:subPropertyOf geo:hasSerialization;
+	rdfs:domain geo:Geometry ;
+	rdfs:range geo:dggsLiteral ;
 	rdfs:isDefinedBy 
-		: , 
 		<http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-dggs-literal> ;
 	schema:description """The Discrete Global Grid System (DGGS) serialization of a Geometry"""@en ;	
 	schema:name "as DGGS"@en .	

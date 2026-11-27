@@ -1,43 +1,26 @@
+== Terms and Definitions
 
+This document uses the terms defined in link:https://ogc.org[OGC Policy Directives], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "shall" (not "must") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
 
-== Terms and definitions
+For the purposes of this document, the following additional terms and definitions apply.
 
-////
-Note that the initial notice about terms ("This document uses the terms defined in OGC Policy Directive 49...")
-is inserted automatically by Metanorma using the agreed standardised language, and you should not enter it here.
-////
+=== Datatype
 
-
-=== example term
-
-term used for exemplary purposes
+class of data consisting of a value space, a lexical space, and a lexical-to-value mapping, identified in RDF by an IRI and typed as `rdfs:Datatype`
 
 [.source]
-<<ogc07036>>
+<<w3c-rdf11-concepts>>
 
-NOTE: An example note.
+=== Geometry Literal
 
-[example]
-Here's an example of an example term.
-
-
-=== Coverage
-
-Feature that acts as a function to return values from its range for any direct position
-within its spatial, temporal or spatiotemporal domain.
+RDF literal whose lexical form encodes a spatial geometry according to a specific serialization format and whose datatype IRI identifies that format
 
 [.source]
-<<OGC_2006>>
+<<ogc-geosparql>>
 
-NOTE: Coverages include regular and irregular grids, point clouds, general meshes.
+=== Serialization Property
 
-
-=== Grid
-
-Network composed of two or more sets of curves in which the members of each set
-intersect the members of the other sets in an algorithmic way.
+RDF datatype property (typically a subproperty of `geo:hasSerialization`) that relates a `geo:Geometry` resource to a geometry literal encoded in a specific format
 
 [.source]
-<<OGC_2006>>
-
-NOTE: This definition intends to include 1D.
+<<ogc-geosparql>>

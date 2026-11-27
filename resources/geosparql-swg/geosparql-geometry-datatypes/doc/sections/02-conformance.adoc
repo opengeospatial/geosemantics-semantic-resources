@@ -1,10 +1,17 @@
-
 == Conformance
 
-// Insert conformance content here.
-Conformance content.
+This standard defines conformance requirements for RDF datasets and vocabularies that use geometry literal datatypes and serialization properties from the GeoSPARQL Geometry Datatype Registry.
 
-[NOTE]
+[conformance,id="/conf/datatype-usage",classification="Conformance Class: Registry Datatype Usage"]
+.Registry Datatype Usage
 ====
-Provide a short description of the content approached in subsequent sections and the main subject of the document.
+*Target*: RDF datasets and vocabularies serializing geometries using registry datatypes.
+
+*Requirement*: `/req/datatype-usage/iri-and-syntax`
+
+*Test method*: Inspect RDF triples containing geometry literals to verify that:
+
+1. Each geometry literal is typed with the exact canonical `rdfs:Datatype` IRI defined in this registry.
+2. The lexical form of each typed literal conforms to the syntax and encoding specification referenced by that datatype.
+3. Where an accompanying serialization property is defined in this registry for the datatype, `geo:Geometry` instances link to the typed literal using that property or a valid subproperty thereof.
 ====
