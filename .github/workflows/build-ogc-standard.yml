@@ -25,30 +25,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    outputs:
-      datatypes: ${{ steps.filter.outputs.datatypes }}
-      alignments: ${{ steps.filter.outputs.alignments }}
-      landing: ${{ steps.filter.outputs.landing }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            datatypes:
-              - 'resources/geosparql-swg/geosparql-geometry-datatypes/**'
-              - 'scripts/ttl_to_adoc.py'
-            alignments:
-              - 'geosparql-1.1/source/alignments/**'
-              - 'scripts/alignments_ttl_to_adoc.py'
-            landing:
-              - 'resources/geosparql-swg/index.html'
 
   build-datatypes:
-    needs: changes
-    if: needs.changes.outputs.datatypes == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
