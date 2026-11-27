@@ -134,12 +134,6 @@ jobs:
 
   deploy:
     needs: [ build-datatypes, build-alignments]
-    if: |
-      always() &&
-      github.event_name != 'pull_request' &&
-      (needs.build-datatypes.result == 'success' || needs.build-datatypes.result == 'skipped') &&
-      (needs.build-alignments.result == 'success' || needs.build-alignments.result == 'skipped') &&
-      (needs.changes.outputs.datatypes == 'true' || needs.changes.outputs.alignments == 'true' || needs.changes.outputs.landing == 'true' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
