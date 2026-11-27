@@ -80,8 +80,6 @@ jobs:
           path: _site/
 
   build-alignments:
-    needs: changes
-    if: needs.changes.outputs.alignments == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -135,7 +133,7 @@ jobs:
           path: _site/
 
   deploy:
-    needs: [changes, build-datatypes, build-alignments]
+    needs: [ build-datatypes, build-alignments]
     if: |
       always() &&
       github.event_name != 'pull_request' &&
