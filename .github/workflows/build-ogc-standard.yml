@@ -141,14 +141,14 @@ jobs:
         run: |
           mkdir -p ~/snap/metanorma/current
           cp -r ~/.fontist ~/snap/metanorma/current/.fontist
-          metanorma compile -t ogc -x xml,html,pdf geosparql-1.1/source/alignments/doc/document.adoc --agree-to-terms
+          metanorma compile -t ogc -x xml,html,pdf resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.adoc --agree-to-terms
 
       - name: Stage Alignments outputs
         run: |
           mkdir -p _site/geosparql-alignments
-          cp geosparql-1.1/source/alignments/doc/document.html _site/geosparql-alignments/index.html
-          cp geosparql-1.1/source/alignments/doc/document.pdf _site/geosparql-alignments/geosparql-alignments.pdf
-          cp geosparql-1.1/source/alignments/doc/document.xml _site/geosparql-alignments/geosparql-alignments.xml
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.html _site/geosparql-alignments/index.html
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.pdf _site/geosparql-alignments/geosparql-alignments.pdf
+          cp resources/geosparql-swg/geosparql-1.1/source/alignments/doc/document.xml _site/geosparql-alignments/geosparql-alignments.xml
 
       - name: Upload Alignments artifacts
         uses: actions/upload-artifact@v4
