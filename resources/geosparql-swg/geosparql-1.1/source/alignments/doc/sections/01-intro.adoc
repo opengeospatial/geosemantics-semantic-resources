@@ -1,0 +1,76 @@
+== Scope
+
+This OGC Community Standard specifies declarative vocabulary alignments between classes and properties of the OGC GeoSPARQL ontology and external RDF/OWL/SKOS vocabularies.
+
+The scope of this document includes:
+
+* Canonical namespace bindings and vocabulary metadata for each GeoSPARQL alignment module;
+* Normative and informative mapping axioms expressed using RDFS, OWL, and SKOS predicates;
+* Governance procedures for proposing and maintaining new vocabulary alignments via the OGC GeoSPARQL Standards Working Group.
+
+This document does not modify the core GeoSPARQL ontology or redefine the semantics of external target vocabularies.
+
+== Conformance
+
+This standard defines conformance requirements for RDF alignment graphs and reasoning profiles that implement the GeoSPARQL vocabulary mappings specified in this document.
+
+[conformance,id="/conf/vocabulary-alignment",classification="Conformance Class: GeoSPARQL Vocabulary Alignment"]
+.GeoSPARQL Vocabulary Alignment
+====
+*Target*: RDF graphs and semantic middleware applying GeoSPARQL vocabulary alignments.
+
+*Requirement*: `/req/vocabulary-alignment/axiom-consistency`
+
+*Test method*: Inspect the alignment graph and entailed triples to verify that:
+
+1. All GeoSPARQL source terms use canonical IRIs within the `http://opengis.net` or `http://opengis.net` namespaces.
+2. Each mapping triple uses a recognized alignment predicate (`owl:equivalentClass`, `owl:equivalentProperty`, `rdfs:subClassOf`, `rdfs:subPropertyOf`, or a `skos:*Match` property).
+3. Applying the RDFS/OWL alignment axioms to a valid source graph produces no logical inconsistencies under OWL 2 DL or RDFS entailment regimes.
+====
+
+[bibliography]
+== Normative References
+
+The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.
+
+* [[[ogc-geosparql,OGC 22-047r1]]], _OGC GeoSPARQL - A Geographic Query Language for RDF Data_ (Version 1.1), Open Geospatial Consortium. https://ogc.org
+* [[[w3c-owl2,W3C OWL 2]]], _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendation, 11 December 2012. https://w3.org
+* [[[w3c-skos,W3C SKOS]]], _SKOS Simple Knowledge Organization System Reference_, W3C Recommendation, 18 August 2009. https://w3.org
+* [[[w3c-rdf-schema,W3C RDF Schema 1.1]]], _RDF Schema 1.1_, W3C Recommendation, 25 February 2014. https://w3.org
+
+== Terms and Definitions
+
+This document uses the terms defined in link:https://ogc.org[OGC Policy Directives], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "shall" (not "must") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+=== Ontology Alignment
+
+set of correspondences between entities (classes, properties, or concepts) belonging to two or more distinct ontologies or vocabularies
+
+=== Equivalence Axiom
+
+OWL statement (`owl:equivalentClass` or `owl:equivalentProperty`) asserting that two classes or properties share identical extensions
+
+[.source]
+<<w3c-owl2>>
+
+=== Subsumption Axiom
+
+RDFS statement (`rdfs:subClassOf` or `rdfs:subPropertyOf`) asserting that all instances or pairs of a source term are also instances or pairs of a broader target term
+
+[.source]
+<<w3c-rdf-schema>>
+
+=== Conceptual Mapping
+
+SKOS mapping assertion (`skos:exactMatch`, `skos:closeMatch`, `skos:broadMatch`, `skos:narrowMatch`, or `skos:relatedMatch`) indicating semantic similarity between concepts across distinct schemes without enforcing OWL logical entailment
+
+[.source]
+<<w3c-skos>>
+
+== Contributing New Alignments
+
+The GeoSPARQL Vocabulary Alignments are maintained openly on GitHub by the OGC GeoSPARQL Standards Working Group in the link:https://github.com[OGC Geosemantics Semantic Resources repository].
+
+Community members and ontology maintainers may propose new vocabulary alignments or revisions to existing mappings by opening an issue at link:https://github.com/issues[https://github.com/issues] with the target vocabulary IRI, proposed Turtle mapping triples, and rationale for the chosen alignment predicates.
